@@ -36,7 +36,11 @@ namespace Kelvinator.Code
 
         public override void ConfigureEvents()
         {
-            throw new NotImplementedException();
+            SetFromRadioButtonEvents();
+            SetToRadioButtonEvents();
+
+            Button btnConvert = LL.FindViewById<Button>(Resource.Id.btn_convert);
+            btnConvert.Click += BtnConvert_Click;
         }
 
         public override void SetFromUnit()

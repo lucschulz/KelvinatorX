@@ -85,10 +85,9 @@
                 layout="@layout/prompt_to" />
     </LinearLayout>
         </LinearLayout>
-    <Button
-        android:text="Convert"
+    <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_temp_convert" />
+        layout="@layout/control_convert_button" />
 
 </LinearLayout>

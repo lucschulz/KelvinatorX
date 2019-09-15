@@ -80,7 +80,7 @@ namespace Kelvinator.Code
             SetFromRadioButtonEvents();
             SetToRadioButtonEvents();
 
-            Button btnConvert = LL.FindViewById<Button>(Resource.Id.btn_temp_convert);
+            Button btnConvert = LL.FindViewById<Button>(Resource.Id.btn_convert);
             btnConvert.Click += BtnConvert_Click;
         }
 

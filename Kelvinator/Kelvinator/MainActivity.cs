@@ -47,7 +47,7 @@ namespace Kelvinator
 
             GenerateFragments();
 
-            MobileAds.Initialize(this.ApplicationContext, "ca-app-pub-0571224028600684~6897109941");
+            MobileAds.Initialize(this.ApplicationContext, Secrets.InitializeMobileAds);
             ConfigureAdBanner();
         }
 

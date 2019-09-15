@@ -32,16 +32,6 @@ namespace Kelvinator.Code
             throw new NotImplementedException();
         }
 
-        public override RadioButton[] GetFromRadioButtons()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override RadioButton[] GetToRadioButtons()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void SetFromRadioButtonEvents()
         {
             throw new NotImplementedException();
@@ -58,6 +48,11 @@ namespace Kelvinator.Code
         }
 
         public override void SetToUnit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Enums.DistanceUnits SetUnit(string rbText)
         {
             throw new NotImplementedException();
         }

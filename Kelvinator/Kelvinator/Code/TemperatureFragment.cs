@@ -113,32 +113,6 @@ namespace Kelvinator.Code
             SetToUnit();
         }
 
-        public override RadioButton[] GetFromRadioButtons()
-        {
-            int children = RgFrom.ChildCount;
-            RadioButton[] rbs = new RadioButton[children];
-
-            for (int i = 0; i < children; i++)
-            {
-                rbs[i] = RgFrom.GetChildAt(i) as RadioButton;
-            }
-
-            return rbs;
-        }
-
-        public override RadioButton[] GetToRadioButtons()
-        {
-            int children = RgTo.ChildCount;
-            RadioButton[] rbs = new RadioButton[children];
-
-            for (int i = 0; i < children; i++)
-            {
-                rbs[i] = RgTo.GetChildAt(i) as RadioButton;
-            }
-
-            return rbs;
-        }
-
         public override void BtnConvert_Click(object sender, EventArgs e)
         {
             var conv = new TemperatureConversions(fromTempUnit, toTempUnit);
@@ -152,6 +126,11 @@ namespace Kelvinator.Code
                 EditText etTo = LL.FindViewById<EditText>(Resource.Id.et_to_prompt);
                 etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
             }
+        }
+
+        public override DistanceUnits SetUnit(string rbText)
+        {
+            throw new NotImplementedException();
         }
     }
 }

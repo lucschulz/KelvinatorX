@@ -1,6 +1,7 @@
 ﻿using Android.Support.V4.App;
 using Android.Widget;
 using System;
+using static Kelvinator.Code.Enums;
 
 namespace Kelvinator.Code
 {
@@ -16,15 +17,39 @@ namespace Kelvinator.Code
 
         public abstract void SetToUnit();
 
+        public abstract DistanceUnits SetUnit(string rbText);
+
         public abstract void ConfigureEvents();
 
         public abstract void SetFromRadioButtonEvents();
 
         public abstract void SetToRadioButtonEvents();
 
-        public abstract RadioButton[] GetFromRadioButtons();
+        public RadioButton[] GetFromRadioButtons()
+        {
+            int children = RgFrom.ChildCount;
+            RadioButton[] rbs = new RadioButton[children];
 
-        public abstract RadioButton[] GetToRadioButtons();
+            for (int i = 0; i < children; i++)
+            {
+                rbs[i] = RgFrom.GetChildAt(i) as RadioButton;
+            }
+
+            return rbs;
+        }
+
+        public RadioButton[] GetToRadioButtons()
+        {
+            int children = RgTo.ChildCount;
+            RadioButton[] rbs = new RadioButton[children];
+
+            for (int i = 0; i < children; i++)
+            {
+                rbs[i] = RgTo.GetChildAt(i) as RadioButton;
+            }
+
+            return rbs;
+        }
 
         public abstract void BtnConvert_Click(object sender, EventArgs e);
     }

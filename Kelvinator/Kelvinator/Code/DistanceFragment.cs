@@ -39,62 +39,63 @@ namespace Kelvinator.Code
             throw new NotImplementedException();
         }
 
-        public override RadioButton[] GetFromRadioButtons()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override RadioButton[] GetToRadioButtons()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void SetFromRadioButtonEvents()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void SetFromUnit()
         {
             int rbId = RgFrom.CheckedRadioButtonId;
             RadioButton rb = LL.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
+            fromDistUnits = SetUnit(rbText);
+        }
+
+        public override void SetToUnit()
+        {
+            int rbId = RgTo.CheckedRadioButtonId;
+            RadioButton rb = LL.FindViewById<RadioButton>(rbId);
+            string rbText = rb.Text;
+
+            toDistUnits = SetUnit(rbText);
+        }
+
+        public override DistanceUnits SetUnit(string rbText)
+        {
             switch (rbText)
             {
                 case Distances.Meter:
-                    fromDistUnits = DistanceUnits.Meter; break;
+                    return DistanceUnits.Meter;
 
                 case Distances.Kilometer:
-                    fromDistUnits = DistanceUnits.Kilometer; break;
+                    return DistanceUnits.Kilometer;
 
                 case Distances.Centimeter:
-                    fromDistUnits = DistanceUnits.Centimeter; break;
+                    return DistanceUnits.Centimeter;
 
                 case Distances.Millimeter:
-                    fromDistUnits = DistanceUnits.Millimeter; break;
+                    return DistanceUnits.Millimeter;
 
                 case Distances.Nanometer:
-                    fromDistUnits = DistanceUnits.Nanometer; break;
+                    return DistanceUnits.Nanometer;
 
                 case Distances.Mile:
-                    fromDistUnits = DistanceUnits.Mile; break;
+                    return DistanceUnits.Mile;
 
                 case Distances.Yard:
-                    fromDistUnits = DistanceUnits.Yard; break;
+                    return DistanceUnits.Yard;
 
                 case Distances.Foot:
-                    fromDistUnits = DistanceUnits.Foot; break;
+                    return DistanceUnits.Foot;
 
                 case Distances.Inch:
-                    fromDistUnits = DistanceUnits.Inch; break;
+                    return DistanceUnits.Inch;
 
                 case Distances.AstronomicalUnit:
-                    fromDistUnits = DistanceUnits.AstronomicalUnit; break;
+                    return DistanceUnits.AstronomicalUnit;
 
                 case Distances.LightYear:
-                    fromDistUnits = DistanceUnits.LightYear; break;
+                    return DistanceUnits.LightYear;
             }
+
+            throw new Exception("The text value did not match any of the possible units.");
         }
 
         public override void SetToRadioButtonEvents()
@@ -102,7 +103,7 @@ namespace Kelvinator.Code
             throw new NotImplementedException();
         }
 
-        public override void SetToUnit()
+        public override void SetFromRadioButtonEvents()
         {
             throw new NotImplementedException();
         }

@@ -88,10 +88,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Secrets.resx</DependentUpon>
     </Compile>
-    <Compile Include="Strings.Designer.cs">
+    <Compile Include="Strings\Distances.cs" />
+    <Compile Include="Strings\Temperatures.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
+      <DependentUpon>Temperatures.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -222,9 +223,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Secrets.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Strings.resx">
+    <EmbeddedResource Include="Strings\Temperatures.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <LastGenOutput>Temperatures.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

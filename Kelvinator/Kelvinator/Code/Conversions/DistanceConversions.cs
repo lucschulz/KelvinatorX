@@ -39,13 +39,13 @@ namespace Kelvinator.Code.Conversions
             return d;
         }
 
-        public double GetResult(double input)
+        public double GetConversiondResult(double input)
         {
             //TODO: Add error checking.
-            ConversionFactors.TryGetValue(fromDistance, out double from);
-            ConversionFactors.TryGetValue(toDistance, out double to);
+            ConversionFactors.TryGetValue(fromDistance, out double fromFactor);
+            ConversionFactors.TryGetValue(toDistance, out double toFactor);
 
-            return input * from / to;
+            return input * fromFactor / toFactor;
         }
     }
 }

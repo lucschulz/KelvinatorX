@@ -120,8 +120,8 @@ namespace Kelvinator.Code
             EditText etFromTemp = LL.FindViewById<EditText>(Resource.Id.et_from_prompt);
             if (etFromTemp.Text != null)
             {
-                double from = Convert.ToDouble(etFromTemp.Text);
-                double toValue = conv.GetConversiondResult(from);
+                double input = Convert.ToDouble(etFromTemp.Text);
+                double toValue = conv.GetConversiondResult(input);
 
                 EditText etTo = LL.FindViewById<EditText>(Resource.Id.et_to_prompt);
                 etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);

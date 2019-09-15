@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Kelvinator.Code.Conversions;
 using Kelvinator.Strings;
 using static Kelvinator.Code.Enums;
 
@@ -26,8 +27,8 @@ namespace Kelvinator.Code
 
         public override void ConfigureControls()
         {
-            RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_temp_from);
-            RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_temp_to);
+            RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_distances_from);
+            RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_distances_to);
 
             SetFromUnit();
             SetToUnit();
@@ -102,19 +103,47 @@ namespace Kelvinator.Code
             throw new Exception("The text value did not match any of the possible units.");
         }
 
-        public override void SetToRadioButtonEvents()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void SetFromRadioButtonEvents()
         {
-            throw new NotImplementedException();
+            RadioButton[] rbsFrom = GetFromRadioButtons();
+            for (int i = 0; i < rbsFrom.Length; i++)
+            {
+                rbsFrom[i].Click += DistanceFragment_Click1;
+            }
+        }
+
+        private void DistanceFragment_Click1(object sender, EventArgs e)
+        {
+            SetFromUnit();
+        }
+
+        public override void SetToRadioButtonEvents()
+        {
+            RadioButton[] rbsTo = GetToRadioButtons();
+            for (int i = 0; i < rbsTo.Length; i++)
+            {
+                rbsTo[i].Click += DistanceFragment_Click;
+            }
+        }
+
+        private void DistanceFragment_Click(object sender, EventArgs e)
+        {
+            SetToUnit();
         }
 
         public override void BtnConvert_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var conv = new DistanceConversions(fromDistUnits, toDistUnits);
+
+            EditText etFromDist = LL.FindViewById<EditText>(Resource.Id.et_from_prompt);
+            if (etFromDist.Text != null)
+            {
+                double from = Convert.ToDouble(etFromDist.Text);
+                double toValue = conv.GetConversiondResult(from);
+
+                EditText etTo = LL.FindViewById<EditText>(Resource.Id.et_to_prompt);
+                etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
+            }
         }
     }
 }

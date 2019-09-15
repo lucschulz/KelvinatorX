@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Kelvinator.Code.Conversions;
+using Kelvinator.Strings;
 using static Kelvinator.Code.Enums;
 
 namespace Kelvinator.Code
@@ -40,15 +41,15 @@ namespace Kelvinator.Code
             RadioButton rb = LL.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
-            if (rbText == Strings.Celsius)
+            if (rbText == Temperatures.Celsius)
             {
                 fromTempUnit = TemperatureUnits.Celsius;
             }
-            else if (rbText == Strings.Kelvin)
+            else if (rbText == Temperatures.Kelvin)
             {
                 fromTempUnit = TemperatureUnits.Kelvin;
             }
-            else if (rbText == Strings.Fahrenheit)
+            else if (rbText == Temperatures.Fahrenheit)
             {
                 fromTempUnit = TemperatureUnits.Fahrentheit;
             }
@@ -60,15 +61,15 @@ namespace Kelvinator.Code
             RadioButton rb = LL.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
-            if (rbText == Strings.Celsius)
+            if (rbText == Temperatures.Celsius)
             {
                 toTempUnit = TemperatureUnits.Celsius;
             }
-            else if (rbText == Strings.Kelvin)
+            else if (rbText == Temperatures.Kelvin)
             {
                 toTempUnit = TemperatureUnits.Kelvin;
             }
-            else if (rbText == Strings.Fahrenheit)
+            else if (rbText == Temperatures.Fahrenheit)
             {
                 toTempUnit = TemperatureUnits.Fahrentheit;
             }

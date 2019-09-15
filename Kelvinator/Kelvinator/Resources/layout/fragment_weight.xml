@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layV_from_weights"
+        android:background="@drawable/unit_list_border">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rg_from_weights">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Kilogram"
+                android:id="@+id/rb_from_kilogram" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gram"
+                android:id="@+id/rb_from_gram" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Milligram"
+                android:id="@+id/rb_from_milligram" />
+            <RadioButton
+                android:text="Metric Ton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_from_metric_ton" />
+            <RadioButton
+                android:text="Long Ton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_from_long_ton" />
+            <RadioButton
+                android:text="Short Ton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_from_short_ton" />
+            <RadioButton
+                android:text="Pound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_from_pound" />
+            <RadioButton
+                android:text="Ounce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_from_ounce" />
+            <RadioButton
+                android:text="Carrat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_from_carrat" />
+            <RadioButton
+                android:text="Atomic Mass Unit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_from_atomic_mass_unit" />
+        </RadioGroup>
+        <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/prompt_from" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layV_to_weights"
+        android:background="@drawable/unit_list_border">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rg_to_weights">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Kilogram"
+                android:id="@+id/rb_to_kilogram" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gram"
+                android:id="@+id/rb_to_gram" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Milligram"
+                android:id="@+id/rb_to_milligram" />
+            <RadioButton
+                android:text="Metric Ton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_to_metric_ton" />
+            <RadioButton
+                android:text="Long Ton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_to_long_ton" />
+            <RadioButton
+                android:text="Short Ton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_to_short_ton" />
+            <RadioButton
+                android:text="Pound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_to_pound" />
+            <RadioButton
+                android:text="Ounce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_to_ounce" />
+            <RadioButton
+                android:text="Carrat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_to_carrat" />
+            <RadioButton
+                android:text="Atomic Mass Unit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rb_to_atomic_mass_unit" />
+        </RadioGroup>
+        <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/prompt_to" />
+    </LinearLayout>
+        
+</LinearLayout>

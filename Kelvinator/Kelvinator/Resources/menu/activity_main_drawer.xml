@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_temperature"
+            android:title="Temperature"
+            android:icon="@drawable/temp" />
+      <!--HIDDEN-->
+      <item
+            android:id="@+id/nav_distance"
+            android:title="Distance"
+            android:visible ="false"
+            android:icon="@drawable/car_bus" />
+      <item
+            android:id="@+id/nav_weight"
+            android:title="Weight"
+            android:visible ="false"
+            android:icon="@drawable/weight" />
+        <item
+            android:id="@+id/nav_volume"
+            android:title="Volume"
+            android:visible ="false"
+            android:icon="@drawable/beaker" />
+        <item
+            android:id="@+id/nav_time"
+            android:title="Time"
+            android:visible ="false"
+            android:icon="@drawable/hourglass" />
+          
+    </group>
+
+    <!--<item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>-->
+
+</menu>

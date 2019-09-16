@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.OS;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Kelvinator.Code.Conversions;
 using Kelvinator.Strings;
@@ -12,27 +13,31 @@ namespace Kelvinator.Code
     {
         DistanceUnits fromDistUnits;
         DistanceUnits toDistUnits;
+        ScrollView SV;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            LL = inflater.Inflate(Resource.Layout.fragment_distance, container, false) as LinearLayout;
+            SV = inflater.Inflate(Resource.Layout.fragment_distance, container, false) as ScrollView;
             ConfigureControls();
-            return LL;
+            return SV;
         }
 
         public override void ConfigureControls()
         {
-            RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_distances_from);
-            RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_distances_to);
+            RgFrom = SV.FindViewById<RadioGroup>(Resource.Id.rg_distances_from);
+            RgTo = SV.FindViewById<RadioGroup>(Resource.Id.rg_distances_to);
 
             SetFromUnit();
             SetToUnit();
             ConfigureEvents();
+
+            Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
         }
 
         public override void ConfigureEvents()
@@ -40,14 +45,14 @@ namespace Kelvinator.Code
             SetFromRadioButtonEvents();
             SetToRadioButtonEvents();
 
-            Button btnConvert = LL.FindViewById<Button>(Resource.Id.btn_convert);
+            Button btnConvert = SV.FindViewById<Button>(Resource.Id.btn_convert);
             btnConvert.Click += BtnConvert_Click;
         }
 
         public override void SetFromUnit()
         {
             int rbId = RgFrom.CheckedRadioButtonId;
-            RadioButton rb = LL.FindViewById<RadioButton>(rbId);
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
             fromDistUnits = SetUnit(rbText);
@@ -56,7 +61,7 @@ namespace Kelvinator.Code
         public override void SetToUnit()
         {
             int rbId = RgTo.CheckedRadioButtonId;
-            RadioButton rb = LL.FindViewById<RadioButton>(rbId);
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
             toDistUnits = SetUnit(rbText);
@@ -135,13 +140,13 @@ namespace Kelvinator.Code
         {
             var conv = new DistanceConversions(fromDistUnits, toDistUnits);
 
-            EditText etFromDist = LL.FindViewById<EditText>(Resource.Id.et_from_prompt);
+            EditText etFromDist = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
             if (etFromDist.Text != null)
             {
                 double from = Convert.ToDouble(etFromDist.Text);
                 double toValue = conv.GetConversiondResult(from);
 
-                EditText etTo = LL.FindViewById<EditText>(Resource.Id.et_to_prompt);
+                EditText etTo = SV.FindViewById<EditText>(Resource.Id.et_to_prompt);
                 etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
             }
         }

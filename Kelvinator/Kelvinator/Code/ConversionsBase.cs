@@ -7,7 +7,7 @@ namespace Kelvinator.Code
 {
     public abstract class ConversionsBase : Fragment
     {
-        public LinearLayout LL { get; set; }
+        public virtual LinearLayout LL { get; set; }
         public RadioGroup RgFrom { get; set; }
         public RadioGroup RgTo { get; set; }
 

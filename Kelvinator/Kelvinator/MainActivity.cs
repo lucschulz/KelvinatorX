@@ -41,7 +41,6 @@ namespace Kelvinator
             drawer.AddDrawerListener(toggle);
             toggle.SyncState();
             
-
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.SetNavigationItemSelectedListener(this);
 

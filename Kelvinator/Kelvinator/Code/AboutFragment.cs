@@ -6,7 +6,7 @@ using Android.Widget;
 using Android.InputMethodServices;
 using Android.Content.PM;
 
-namespace Kelvinator.Code
+namespace KelvinatorX.Code
 {
     public class AboutFragment : Fragment
     {

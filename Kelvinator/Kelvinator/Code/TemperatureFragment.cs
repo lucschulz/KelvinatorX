@@ -2,11 +2,11 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Kelvinator.Code.Conversions;
-using Kelvinator.Strings;
-using static Kelvinator.Code.Enums;
+using KelvinatorX.Code.Conversions;
+using KelvinatorX.Strings;
+using static KelvinatorX.Code.Enums;
 
-namespace Kelvinator.Code
+namespace KelvinatorX.Code
 {
     public class TemperatureFragment : ConversionsBase
     {

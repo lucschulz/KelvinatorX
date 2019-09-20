@@ -10,8 +10,8 @@
     <TemplateGuid>{d0238942-4dcf-4d08-b23a-81159ca3b345}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kelvinator</RootNamespace>
-    <AssemblyName>Kelvinator</AssemblyName>
+    <RootNamespace>KelvinatorX</RootNamespace>
+    <AssemblyName>KelvinatorX</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>

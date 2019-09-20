@@ -5,16 +5,16 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
 using Android.Views;
-using Kelvinator.Code;
+using KelvinatorX.Code;
 using System.Collections.Generic;
-using static Kelvinator.Code.Enums;
+using static KelvinatorX.Code.Enums;
 using Android.Support.V4.Widget;
 using ActionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
 using Android.Gms.Ads;
 using Android.Widget;
 using Android.Graphics;
 
-namespace Kelvinator
+namespace KelvinatorX
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener

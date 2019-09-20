@@ -1,7 +1,6 @@
-﻿using System;
-using Kelvinator.Code.Conversions;
+﻿using KelvinatorX.Code.Conversions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Temp = Kelvinator.Code.Enums.TemperatureUnits;
+using Temp = KelvinatorX.Code.Enums.TemperatureUnits;
 
 namespace KelvinatorTests
 {

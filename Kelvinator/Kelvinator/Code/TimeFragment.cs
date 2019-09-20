@@ -3,7 +3,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 
-namespace Kelvinator.Code
+namespace KelvinatorX.Code
 {
     public class TimeFragment : ConversionsBase
     {

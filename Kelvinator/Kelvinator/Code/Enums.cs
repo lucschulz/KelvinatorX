@@ -1,4 +1,4 @@
-﻿namespace Kelvinator.Code
+﻿namespace KelvinatorX.Code
 {
     public static class Enums
     {

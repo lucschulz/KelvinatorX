@@ -1,7 +1,7 @@
 ﻿using System;
-using Temp = Kelvinator.Code.Enums.TemperatureUnits;
+using Temp = KelvinatorX.Code.Enums.TemperatureUnits;
 
-namespace Kelvinator.Code.Conversions
+namespace KelvinatorX.Code.Conversions
 {
     public class TemperatureConversions
     {

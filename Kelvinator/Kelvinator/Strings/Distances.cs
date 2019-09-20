@@ -1,4 +1,4 @@
-﻿namespace Kelvinator.Strings
+﻿namespace KelvinatorX.Strings
 {
     public static class Distances
     {

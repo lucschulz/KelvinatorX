@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kelvinator.Strings {
+namespace KelvinatorX.Strings {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Kelvinator.Strings {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Kelvinator.Strings.Temperatures", typeof(Temperatures).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KelvinatorX.Strings.Temperatures", typeof(Temperatures).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

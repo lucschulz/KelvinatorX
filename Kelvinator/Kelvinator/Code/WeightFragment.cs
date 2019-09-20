@@ -4,7 +4,7 @@ using Android.Views;
 using Android.Widget;
 using System;
 
-namespace Kelvinator.Code
+namespace KelvinatorX.Code
 {
     public class WeightFragment : ConversionsBase
     {

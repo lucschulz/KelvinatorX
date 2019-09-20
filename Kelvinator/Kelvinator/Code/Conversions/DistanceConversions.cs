@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Dist = Kelvinator.Code.Enums.DistanceUnits;
+using Dist = KelvinatorX.Code.Enums.DistanceUnits;
 
-namespace Kelvinator.Code.Conversions
+namespace KelvinatorX.Code.Conversions
 {
     public class DistanceConversions
     {

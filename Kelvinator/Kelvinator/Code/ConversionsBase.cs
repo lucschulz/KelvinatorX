@@ -1,9 +1,9 @@
 ﻿using Android.Support.V4.App;
 using Android.Widget;
 using System;
-using static Kelvinator.Code.Enums;
+using static KelvinatorX.Code.Enums;
 
-namespace Kelvinator.Code
+namespace KelvinatorX.Code
 {
     public abstract class ConversionsBase : Fragment
     {

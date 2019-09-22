@@ -46,7 +46,7 @@ namespace KelvinatorX
 
             GenerateFragments();
 
-            MobileAds.Initialize(this.ApplicationContext, Secrets.InitializeMobileAds);
+            MobileAds.Initialize(this.ApplicationContext, Sec.InitializeMobileAds);
             ConfigureAdBanner();
         }
 
@@ -111,14 +111,14 @@ namespace KelvinatorX
             var android_id = Android.Provider.Settings.Secure.GetString(ContentResolver, Android.Provider.Settings.Secure.AndroidId);
 
             // USE TEST ADS IF RUNNING ON A DEV DEVICE
-            if (android_id == Secrets.SamsungA5 || android_id == Secrets.MyDeviceEmulator)
+            if (android_id == Sec.SamsungA5 || android_id == Sec.MyDeviceEmulator)
             {
-                ad.AdUnitId = Secrets.TestAdUnitId;
+                ad.AdUnitId = Sec.TestAdUnitId;
                 adRequest = new AdRequest.Builder().AddTestDevice(android_id).Build();
             }
             else
             {
-                ad.AdUnitId = Secrets.AdUnitId;
+                ad.AdUnitId = Sec.AdUnitId;
                 adRequest = new AdRequest.Builder().Build();
             }
 

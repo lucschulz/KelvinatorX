@@ -83,3 +83,6 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+Kelvinator/Kelvinator/Sec.resx
+Kelvinator/Kelvinator/Sec.Designer.cs
+Kelvinator/KelvinatorTests/obj/Release AAb/build.force

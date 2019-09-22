@@ -60,6 +60,18 @@
     <BundleAssemblies>false</BundleAssemblies>
     <MandroidI18n />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release AAB|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release AAB\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AndroidPackageFormat>aab</AndroidPackageFormat>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -83,10 +95,10 @@
     <Compile Include="Code\AboutFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="Secrets.Designer.cs">
+    <Compile Include="Sec.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Secrets.resx</DependentUpon>
+      <DependentUpon>Sec.resx</DependentUpon>
     </Compile>
     <Compile Include="Strings\Distances.cs" />
     <Compile Include="Strings\Temperatures.Designer.cs">
@@ -219,9 +231,9 @@
     <AndroidResource Include="Resources\drawable\tesseract_circle_512.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Secrets.resx">
+    <EmbeddedResource Include="Sec.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Secrets.Designer.cs</LastGenOutput>
+      <LastGenOutput>Sec.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Strings\Temperatures.resx">
       <Generator>ResXFileCodeGenerator</Generator>

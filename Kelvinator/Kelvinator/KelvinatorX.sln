@@ -9,16 +9,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KelvinatorTests", "..\Kelvi
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AAB|Any CPU = AAB|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.AAB|Any CPU.ActiveCfg = Release AAb|Any CPU
+		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.AAB|Any CPU.Build.0 = Release AAb|Any CPU
+		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.AAB|Any CPU.Deploy.0 = Release AAb|Any CPU
 		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02605192-AF5C-4DD3-8EA7-6DCC35346CCB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E828A171-BBD6-4662-A5E3-D8BA139AE294}.AAB|Any CPU.ActiveCfg = Release AAb|Any CPU
+		{E828A171-BBD6-4662-A5E3-D8BA139AE294}.AAB|Any CPU.Build.0 = Release AAb|Any CPU
 		{E828A171-BBD6-4662-A5E3-D8BA139AE294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E828A171-BBD6-4662-A5E3-D8BA139AE294}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E828A171-BBD6-4662-A5E3-D8BA139AE294}.Release|Any CPU.ActiveCfg = Release|Any CPU

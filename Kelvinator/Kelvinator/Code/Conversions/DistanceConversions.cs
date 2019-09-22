@@ -28,10 +28,10 @@ namespace KelvinatorX.Code.Conversions
                 { Dist.Centimeter, 0.01 },
                 { Dist.Meter, 1.0 },
                 { Dist.Kilometer, 1000.0 },
-                { Dist.Inch, 0.0000254 },
-                { Dist.Foot, 0.0003048 },
-                { Dist.Yard, 0.0009144 },
-                { Dist.Mile, 1.609344 },
+                { Dist.Inch, 39.37 },
+                { Dist.Foot, 3.2809 },
+                { Dist.Yard, 1.0936 },
+                { Dist.Mile, 1609.344497892563 },
                 { Dist.AstronomicalUnit, 149598073000 },
                 { Dist.LightYear, 9.4607304725808e15 }
             };

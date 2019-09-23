@@ -116,6 +116,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Temperatures.resx</DependentUpon>
     </Compile>
+    <Compile Include="Strings\Times.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

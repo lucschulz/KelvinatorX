@@ -43,7 +43,7 @@ namespace KelvinatorX.Code
             RadioButton rb = SV.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
-            fromTimeUnits = SetUnit(rbText);
+            fromTimeUnits = (TimeUnits)SetUnit(rbText);
         }
 
         public override void SetToUnit()
@@ -51,7 +51,7 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public override void ConfigureEvents()
+        public void ConfigureEvents()
         {
             throw new NotImplementedException();
         }

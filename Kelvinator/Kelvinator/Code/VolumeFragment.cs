@@ -27,7 +27,7 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public override void ConfigureEvents()
+        public void ConfigureEvents()
         {
             throw new NotImplementedException();
         }
@@ -52,7 +52,7 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public override Enums.DistanceUnits SetUnit(string rbText)
+        public override object SetUnit(string rbText)
         {
             throw new NotImplementedException();
         }

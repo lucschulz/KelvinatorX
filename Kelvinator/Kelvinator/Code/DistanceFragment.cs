@@ -38,7 +38,7 @@ namespace KelvinatorX.Code
             Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
         }
 
-        public override void ConfigureEvents()
+        public void ConfigureEvents()
         {
             SetFromRadioButtonEvents();
             SetToRadioButtonEvents();

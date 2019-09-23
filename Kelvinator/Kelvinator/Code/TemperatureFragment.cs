@@ -75,7 +75,7 @@ namespace KelvinatorX.Code
             }
         }
 
-        public override void ConfigureEvents()
+        public void ConfigureEvents()
         {
             SetFromRadioButtonEvents();
             SetToRadioButtonEvents();
@@ -128,7 +128,7 @@ namespace KelvinatorX.Code
             }
         }
 
-        public override DistanceUnits SetUnit(string rbText)
+        public override object SetUnit(string rbText)
         {
             throw new NotImplementedException();
         }

@@ -11,13 +11,6 @@
             Time
         }
 
-        public enum TemperatureUnits
-        {
-            Celsius,
-            Kelvin,
-            Fahrentheit
-        }
-
         public enum DistanceUnits
         {
             Meter,
@@ -31,6 +24,57 @@
             Inch,
             AstronomicalUnit,
             LightYear
+        }
+
+        public enum TemperatureUnits
+        {
+            Celsius,
+            Kelvin,
+            Fahrentheit
+        }
+
+        public enum TimeUnits
+        {
+            Second,
+            Millisecond,
+            Microsecond,
+            Nanosecond,
+            Picosecond,
+            Minute,
+            Hour,
+            Day,
+            Week,
+            Month,
+            Year
+        }
+
+        public enum VolumeUnits
+        {
+            CubicMeter,
+            CubicKilometer,
+            CubicCentimeter,
+            CubicMillimeter,
+            Liter,
+            Milliliter,
+            US_Gallon,
+            ImperialGallon,
+            ImperialFluidQuart,
+            ImperialFluidPint,
+            ImperialFluidOunce
+        }
+
+        public enum WeightUnits
+        {
+            Kilogram,
+            Gram,
+            Milligram,
+            MetricTon,
+            LongTon,
+            ShortTon,
+            Pound,
+            Ounce,
+            Carrat,
+            AtomicMassUnit
         }
     }
 }

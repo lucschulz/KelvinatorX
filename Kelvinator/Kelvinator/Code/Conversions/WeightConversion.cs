@@ -14,5 +14,6 @@ namespace KelvinatorX.Code.Conversions
 {
     class WeightConversion
     {
+
     }
 }

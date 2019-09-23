@@ -15,15 +15,23 @@ namespace KelvinatorX.Code
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             LL = inflater.Inflate(Resource.Layout.fragment_time, container, false) as LinearLayout;
+            ConfigureControls();
             return LL;
         }
 
-        public override void BtnConvert_Click(object sender, EventArgs e)
+        public override void ConfigureControls()
         {
-            throw new NotImplementedException();
+            RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_time_from);
+            RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_time_to);
+
+            SetFromUnit();
+            SetToUnit();
+            ConfigureEvents();
+
+            Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
         }
 
-        public override void ConfigureControls()
+        public override void BtnConvert_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }

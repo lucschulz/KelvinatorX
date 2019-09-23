@@ -8,6 +8,7 @@ namespace KelvinatorX.Code
     public abstract class ConversionsBase : Fragment
     {
         public virtual LinearLayout LL { get; set; }
+        public virtual ScrollView SV { get; set; }
         public RadioGroup RgFrom { get; set; }
         public RadioGroup RgTo { get; set; }
 
@@ -17,7 +18,7 @@ namespace KelvinatorX.Code
 
         public abstract void SetToUnit();
 
-        public abstract DistanceUnits SetUnit(string rbText);
+        public abstract object SetUnit(string rbText);
 
         public abstract void ConfigureEvents();
 

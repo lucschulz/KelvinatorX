@@ -12,7 +12,6 @@ namespace KelvinatorX.Code
     {
         DistanceUnits fromDistUnits;
         DistanceUnits toDistUnits;
-        ScrollView SV;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -54,7 +53,7 @@ namespace KelvinatorX.Code
             RadioButton rb = SV.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
-            fromDistUnits = SetUnit(rbText);
+            fromDistUnits = (DistanceUnits)SetUnit(rbText);
         }
 
         public override void SetToUnit()
@@ -63,10 +62,10 @@ namespace KelvinatorX.Code
             RadioButton rb = SV.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
-            toDistUnits = SetUnit(rbText);
+            toDistUnits = (DistanceUnits)SetUnit(rbText);
         }
 
-        public override DistanceUnits SetUnit(string rbText)
+        public override object SetUnit(string rbText)
         {
             switch (rbText)
             {

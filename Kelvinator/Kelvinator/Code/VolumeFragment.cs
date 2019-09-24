@@ -14,8 +14,8 @@ namespace KelvinatorX.Code
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            LL = inflater.Inflate(Resource.Layout.fragment_volume, container, false) as LinearLayout;
-            return LL;
+            SV = inflater.Inflate(Resource.Layout.fragment_volume, container, false) as ScrollView;
+            return SV;
         }
         public override void BtnConvert_Click(object sender, EventArgs e)
         {

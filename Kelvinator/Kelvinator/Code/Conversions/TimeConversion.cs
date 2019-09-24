@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Time = KelvinatorX.Code.Enums.TimeUnits;
 
 namespace KelvinatorX.Code.Conversions
@@ -21,7 +20,7 @@ namespace KelvinatorX.Code.Conversions
 
         private Dictionary<Time, double> GetConversionFactors()
         {
-            Dictionary<Time, double> t = new Dictionary<Time, double>
+            var t = new Dictionary<Time, double>
             {
                 { Time.Hour, 1.0 },
                 { Time.Picosecond, 3.6e+15 },

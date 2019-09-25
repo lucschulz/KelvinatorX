@@ -12,31 +12,22 @@ namespace KelvinatorX.Code
     {
         DistanceUnits fromDistUnits;
         DistanceUnits toDistUnits;
-        ScrollView SV;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             SV = inflater.Inflate(Resource.Layout.fragment_distance, container, false) as ScrollView;
-            ConfigureControls();
-            return SV;
-        }
 
-        public override void ConfigureControls()
-        {
             RgFrom = SV.FindViewById<RadioGroup>(Resource.Id.rg_distances_from);
             RgTo = SV.FindViewById<RadioGroup>(Resource.Id.rg_distances_to);
 
-            SetFromUnit();
-            SetToUnit();
-            ConfigureEvents();
+            base.ConfigureControls();
 
-            Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            return SV;
         }
 
         public override void ConfigureEvents()
@@ -54,7 +45,7 @@ namespace KelvinatorX.Code
             RadioButton rb = SV.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
-            fromDistUnits = SetUnit(rbText);
+            fromDistUnits = (DistanceUnits)SetUnit(rbText);
         }
 
         public override void SetToUnit()
@@ -63,10 +54,10 @@ namespace KelvinatorX.Code
             RadioButton rb = SV.FindViewById<RadioButton>(rbId);
             string rbText = rb.Text;
 
-            toDistUnits = SetUnit(rbText);
+            toDistUnits = (DistanceUnits)SetUnit(rbText);
         }
 
-        public override DistanceUnits SetUnit(string rbText)
+        public override object SetUnit(string rbText)
         {
             switch (rbText)
             {

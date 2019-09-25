@@ -45,3 +45,4 @@ D:\OneDrive\Code\Android\Xamarin\KelvinatorX\Kelvinator\KelvinatorTests\bin\Debu
 D:\OneDrive\Code\Android\Xamarin\KelvinatorX\Kelvinator\KelvinatorTests\obj\Debug\KelvinatorTests.csproj.CopyComplete
 D:\OneDrive\Code\Android\Xamarin\KelvinatorX\Kelvinator\KelvinatorTests\obj\Debug\KelvinatorTests.dll
 D:\OneDrive\Code\Android\Xamarin\KelvinatorX\Kelvinator\KelvinatorTests\obj\Debug\KelvinatorTests.pdb
+D:\OneDrive\Code\Android\Xamarin\KelvinatorX\Kelvinator\KelvinatorTests\obj\Debug\KelvinatorTests.csprojAssemblyReference.cache

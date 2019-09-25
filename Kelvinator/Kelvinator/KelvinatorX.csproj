@@ -71,6 +71,13 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -84,6 +91,9 @@
     <Compile Include="Code\ConversionsBase.cs" />
     <Compile Include="Code\Conversions\DistanceConversions.cs" />
     <Compile Include="Code\Conversions\TemperatureConversions.cs" />
+    <Compile Include="Code\Conversions\TimeConversion.cs" />
+    <Compile Include="Code\Conversions\VolumeConversion.cs" />
+    <Compile Include="Code\Conversions\WeightConversion.cs" />
     <Compile Include="Code\DistanceFragment.cs" />
     <Compile Include="Code\Enums.cs" />
     <Compile Include="Code\StartFragment.cs" />
@@ -106,6 +116,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Temperatures.resx</DependentUpon>
     </Compile>
+    <Compile Include="Strings\Times.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

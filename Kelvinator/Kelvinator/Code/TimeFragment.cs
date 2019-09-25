@@ -2,11 +2,17 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using KelvinatorX.Strings;
+using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code
 {
     public class TimeFragment : ConversionsBase
     {
+        TimeUnits fromTimeUnits;
+        TimeUnits toTimeUnits;
+
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -14,16 +20,26 @@ namespace KelvinatorX.Code
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            LL = inflater.Inflate(Resource.Layout.fragment_time, container, false) as LinearLayout;
-            return LL;
+            SV = inflater.Inflate(Resource.Layout.fragment_time, container, false) as ScrollView;
+
+            RgFrom = SV.FindViewById<RadioGroup>(Resource.Id.rg_time_from);
+            RgTo = SV.FindViewById<RadioGroup>(Resource.Id.rg_time_to);
+
+            ConfigureControls();
+
+            return SV;
         }
 
-        public override void BtnConvert_Click(object sender, EventArgs e)
+        public override void SetFromUnit()
         {
-            throw new NotImplementedException();
+            int rbId = RgFrom.CheckedRadioButtonId;
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
+            string rbText = rb.Text;
+
+            fromTimeUnits = (TimeUnits)SetUnit(rbText);
         }
 
-        public override void ConfigureControls()
+        public override void SetToUnit()
         {
             throw new NotImplementedException();
         }
@@ -38,24 +54,55 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public override void SetFromUnit()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void SetToRadioButtonEvents()
         {
             throw new NotImplementedException();
         }
 
-        public override void SetToUnit()
+        public override void BtnConvert_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public override Enums.DistanceUnits SetUnit(string rbText)
+        public override object SetUnit(string rbText)
         {
-            throw new NotImplementedException();
+            switch(rbText)
+            {
+                case Times.Day:
+                    return TimeUnits.Day;
+
+                case Times.Picosecond:
+                    return TimeUnits.Picosecond;
+
+                case Times.Nanosecond:
+                    return TimeUnits.Nanosecond;
+
+                case Times.Microsecond:
+                    return TimeUnits.Microsecond;
+
+                case Times.Millisecond:
+                    return TimeUnits.Millisecond;
+
+                case Times.Second:
+                    return TimeUnits.Second;
+
+                case Times.Minute:
+                    return TimeUnits.Minute;
+
+                case Times.Hour:
+                    return TimeUnits.Hour;
+
+                case Times.Week:
+                    return TimeUnits.Week;
+
+                case Times.Month:
+                    return TimeUnits.Month;
+
+                case Times.Year:
+                    return TimeUnits.Year;
+            }
+
+            throw new Exception("The text value did not match any of the possible units.");
         }
     }
 }

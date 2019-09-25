@@ -6,7 +6,7 @@ using System;
 
 namespace KelvinatorX.Code
 {
-    public class WeightFragment : ConversionsBase
+    public class WeightFragment : BaseFrament
     {
         public override void OnCreate(Bundle savedInstanceState)
         {

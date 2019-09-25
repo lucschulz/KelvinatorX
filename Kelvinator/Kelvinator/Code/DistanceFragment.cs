@@ -8,7 +8,7 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code
 {
-    public class DistanceFragment : ConversionsBase
+    public class DistanceFragment : BaseFrament
     {
         DistanceUnits fromDistUnits;
         DistanceUnits toDistUnits;

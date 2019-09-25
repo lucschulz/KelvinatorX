@@ -8,7 +8,7 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code
 {
-    public class VolumeFragment : ConversionsBase
+    public class VolumeFragment : BaseFrament
     {
         VolumeUnits fromVolumeUnits;
         VolumeUnits toVolumeUnits;
@@ -68,7 +68,7 @@ namespace KelvinatorX.Code
             fromVolumeUnits = (VolumeUnits)SetUnit(rbText);
         }
 
-        public override object SetUnit(string rbText)
+        public override void SetToUnit()
         {
             int rbId = RgTo.CheckedRadioButtonId;
             RadioButton rb = SV.FindViewById<RadioButton>(rbId);

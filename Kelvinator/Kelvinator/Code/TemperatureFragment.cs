@@ -20,19 +20,15 @@ namespace KelvinatorX.Code
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            //TODO: Change to ScrollView
             LL = (LinearLayout)inflater.Inflate(Resource.Layout.fragment_temperature, container, false);
-            ConfigureControls();
-            return LL;
-        }
 
-        public override void ConfigureControls()
-        {
             RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_temp_from);
             RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_temp_to);
 
-            SetFromUnit();
-            SetToUnit();
-            ConfigureEvents();
+            ConfigureControls();
+
+            return LL;
         }
 
         public override void SetFromUnit()
@@ -75,7 +71,7 @@ namespace KelvinatorX.Code
             }
         }
 
-        public void ConfigureEvents()
+        public override void ConfigureEvents()
         {
             SetFromRadioButtonEvents();
             SetToRadioButtonEvents();
@@ -93,24 +89,14 @@ namespace KelvinatorX.Code
             }
         }
 
-        private void FromRadioButton_Click(object sender, EventArgs e)
-        {
-            SetFromUnit();
-        }
-
 
         public override void SetToRadioButtonEvents()
         {
             RadioButton[] rbsTo = GetToRadioButtons();
             for (int i = 0; i < rbsTo.Length; i++)
             {
-                rbsTo[i].Click += TemperatureFragment_Click;
+                rbsTo[i].Click += ToRadioButton_Click;
             }
-        }
-
-        private void TemperatureFragment_Click(object sender, EventArgs e)
-        {
-            SetToUnit();
         }
 
         public override void BtnConvert_Click(object sender, EventArgs e)

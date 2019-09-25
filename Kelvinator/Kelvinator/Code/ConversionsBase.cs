@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.Support.V4.App;
+using Android.Views;
 using Android.Widget;
 
 namespace KelvinatorX.Code
@@ -12,51 +13,24 @@ namespace KelvinatorX.Code
         /// </summary>
         public virtual LinearLayout LL { get; set; }
 
+
         /// <summary>
         /// Linear layouts need to be replaces with scroll layouts so that the keyboard
         /// doesn't make it impossible to use the rest of the screen when it pops up.
         /// </summary>
         public virtual ScrollView SV { get; set; }
 
+
         /// <summary>
         /// A RadioGroup object containing all the 'FROM' RadioButtons.
         /// </summary>
         public RadioGroup RgFrom { get; set; }
 
+
         /// <summary>
         /// A RadioGroup object containing all the 'TO' RadioButtons.
         /// </summary>
         public RadioGroup RgTo { get; set; }
-
-
-        /// <summary>
-        /// Implement in derived class to configure the events associated to clicking a 'FROM' RadioButton.
-        /// </summary>
-        public abstract void SetFromRadioButtonEvents();
-
-        /// <summary>
-        /// Implement in derived class to configure the events associated to clicking a 'TO' RadioButton.
-        /// </summary>
-        public abstract void SetToRadioButtonEvents();
-
-        /// <summary>
-        /// Use to run the Setting Methods and assign the public properties of the base class.
-        /// </summary>
-        public abstract void ConfigureControls();
-
-        public abstract void SetFromUnit();
-
-        public abstract void SetToUnit();
-
-        /// <summary>
-        /// Sets the most recently clicked RadioButton to be the current unit for calculations.
-        /// </summary>
-        /// <param name="rbText">The text of the RadioButton that was selected. 
-        ///     They are matched in the Strings namespace.
-        /// </param>
-        /// <returns>Returns an object that can be cast to an Enum from the Enums class.</returns>
-        public abstract object SetUnit(string rbText);
-
 
 
         /// <summary>
@@ -96,10 +70,66 @@ namespace KelvinatorX.Code
 
 
         /// <summary>
+        /// Implement in derived class to configure the events associated to clicking a 'FROM' RadioButton.
+        /// </summary>
+        public abstract void SetFromRadioButtonEvents();
+
+
+        /// <summary>
+        /// Implement in derived class to configure the events associated to clicking a 'TO' RadioButton.
+        /// </summary>
+        public abstract void SetToRadioButtonEvents();
+
+
+        /// <summary>
+        /// Use to run the Setting Methods and assign the public properties of the base class.
+        /// </summary>
+        public void ConfigureControls()
+        {
+            SetFromUnit();
+            SetToUnit();
+            ConfigureEvents();
+
+            Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
+        }
+
+
+        public abstract void SetFromUnit();
+
+
+        public abstract void SetToUnit();
+
+
+        /// <summary>
+        /// Sets the most recently clicked RadioButton to be the current unit for calculations.
+        /// </summary>
+        /// <param name="rbText">The text of the RadioButton that was selected. 
+        ///     They are matched in the Strings namespace.
+        /// </param>
+        /// <returns>Returns an object that can be cast to an Enum from the Enums class.</returns>
+        public abstract object SetUnit(string rbText);
+
+
+        public abstract void ConfigureEvents();
+
+
+        /// <summary>
         /// Called when the 'CONVERT' button is clicked.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public abstract void BtnConvert_Click(object sender, EventArgs e);
+
+
+        public void FromRadioButton_Click(object sender, EventArgs e)
+        {
+            SetFromUnit();
+        }
+
+
+        public void ToRadioButton_Click(object sender, EventArgs e)
+        {
+            SetToUnit();
+        }
     }
 }

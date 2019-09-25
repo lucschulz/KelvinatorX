@@ -16,6 +16,12 @@ namespace KelvinatorX.Code
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             LL = inflater.Inflate(Resource.Layout.fragment_weight, container, false) as LinearLayout;
+
+            RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_from_weights);
+            RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_to_weights);
+
+            base.ConfigureControls();
+
             return LL;
         }
         public override void BtnConvert_Click(object sender, EventArgs e)
@@ -23,12 +29,7 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public override void ConfigureControls()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ConfigureEvents()
+        public override void ConfigureEvents()
         {
             throw new NotImplementedException();
         }

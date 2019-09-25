@@ -16,29 +16,21 @@ namespace KelvinatorX.Code
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             SV = inflater.Inflate(Resource.Layout.fragment_distance, container, false) as ScrollView;
-            ConfigureControls();
-            return SV;
-        }
 
-        public override void ConfigureControls()
-        {
             RgFrom = SV.FindViewById<RadioGroup>(Resource.Id.rg_distances_from);
             RgTo = SV.FindViewById<RadioGroup>(Resource.Id.rg_distances_to);
 
-            SetFromUnit();
-            SetToUnit();
-            ConfigureEvents();
+            base.ConfigureControls();
 
-            Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            return SV;
         }
 
-        public void ConfigureEvents()
+        public override void ConfigureEvents()
         {
             SetFromRadioButtonEvents();
             SetToRadioButtonEvents();

@@ -21,20 +21,13 @@ namespace KelvinatorX.Code
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             SV = inflater.Inflate(Resource.Layout.fragment_time, container, false) as ScrollView;
-            ConfigureControls();
-            return SV;
-        }
 
-        public override void ConfigureControls()
-        {
             RgFrom = SV.FindViewById<RadioGroup>(Resource.Id.rg_time_from);
             RgTo = SV.FindViewById<RadioGroup>(Resource.Id.rg_time_to);
 
-            SetFromUnit();
-            SetToUnit();
-            ConfigureEvents();
+            ConfigureControls();
 
-            Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
+            return SV;
         }
 
         public override void SetFromUnit()
@@ -51,7 +44,7 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public void ConfigureEvents()
+        public override void ConfigureEvents()
         {
             throw new NotImplementedException();
         }

@@ -83,3 +83,5 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+Kelvinator/Kelvinator/Sec.Designer.cs
+Kelvinator/Kelvinator/Sec.resx

@@ -48,6 +48,7 @@ namespace KelvinatorX.Code
                 rbsFrom[i].Click += FromRadioButton_Click;
             }
         }
+        
 
         public override void SetToRadioButtonEvents()
         {
@@ -67,7 +68,7 @@ namespace KelvinatorX.Code
             fromVolumeUnits = (VolumeUnits)SetUnit(rbText);
         }
 
-        public override void SetToUnit()
+        public override object SetUnit(string rbText)
         {
             int rbId = RgTo.CheckedRadioButtonId;
             RadioButton rb = SV.FindViewById<RadioButton>(rbId);

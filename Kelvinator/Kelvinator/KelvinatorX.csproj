@@ -117,6 +117,7 @@
       <DependentUpon>Temperatures.resx</DependentUpon>
     </Compile>
     <Compile Include="Strings\Times.cs" />
+    <Compile Include="Strings\Volumes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -103,13 +103,8 @@ namespace KelvinatorX.Code
             RadioButton[] rbsFrom = GetFromRadioButtons();
             for (int i = 0; i < rbsFrom.Length; i++)
             {
-                rbsFrom[i].Click += DistanceFragment_Click1;
+                rbsFrom[i].Click += base.FromRadioButton_Click;
             }
-        }
-
-        private void DistanceFragment_Click1(object sender, EventArgs e)
-        {
-            SetFromUnit();
         }
 
         public override void SetToRadioButtonEvents()
@@ -117,13 +112,8 @@ namespace KelvinatorX.Code
             RadioButton[] rbsTo = GetToRadioButtons();
             for (int i = 0; i < rbsTo.Length; i++)
             {
-                rbsTo[i].Click += DistanceFragment_Click;
+                rbsTo[i].Click += base.ToRadioButton_Click;
             }
-        }
-
-        private void DistanceFragment_Click(object sender, EventArgs e)
-        {
-            SetToUnit();
         }
 
         public override void BtnConvert_Click(object sender, EventArgs e)

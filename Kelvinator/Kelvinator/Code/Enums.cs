@@ -56,7 +56,7 @@
             CubicMillimeter,
             Liter,
             Milliliter,
-            US_Gallon,
+            USGallon,
             ImperialGallon,
             ImperialFluidQuart,
             ImperialFluidPint,

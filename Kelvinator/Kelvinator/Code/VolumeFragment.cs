@@ -2,6 +2,8 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using KelvinatorX.Code.Conversions;
+using KelvinatorX.Strings;
 using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code
@@ -28,11 +30,6 @@ namespace KelvinatorX.Code
             return SV;
         }
 
-        public override void BtnConvert_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         public override void ConfigureEvents()
         {
             // TODO: Move this to abtract class. Method is the same in each derived class.
@@ -51,26 +48,88 @@ namespace KelvinatorX.Code
                 rbsFrom[i].Click += FromRadioButton_Click;
             }
         }
-        
+
+        public override void SetToRadioButtonEvents()
+        {
+            RadioButton[] rbsTo = GetToRadioButtons();
+            for (int i = 0; i < rbsTo.Length; i++)
+            {
+                rbsTo[i].Click += ToRadioButton_Click;
+            }
+        }
 
         public override void SetFromUnit()
         {
-            throw new NotImplementedException();
+            int rbId = RgFrom.CheckedRadioButtonId;
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
+            string rbText = rb.Text;
+
+            fromVolumeUnits = (VolumeUnits)SetUnit(rbText);
         }
 
         public override void SetToUnit()
         {
-            throw new NotImplementedException();
+            int rbId = RgTo.CheckedRadioButtonId;
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
+            string rbText = rb.Text;
+
+            toVolumeUnits = (VolumeUnits)SetUnit(rbText);
         }
 
         public override object SetUnit(string rbText)
         {
-            throw new NotImplementedException();
+            switch(rbText)
+            {
+                case Volumes.Liter:
+                    return VolumeUnits.Liter;
+
+                case Volumes.CubicCentimeter:
+                    return VolumeUnits.CubicCentimeter;
+
+                case Volumes.CubicKilometer:
+                    return VolumeUnits.CubicKilometer;
+
+                case Volumes.CubicMeter:
+                    return VolumeUnits.CubicMeter;
+
+                case Volumes.CubicMillimeter:
+                    return VolumeUnits.CubicMillimeter;
+
+                case Volumes.ImperiaFluidOunce:
+                    return VolumeUnits.ImperialFluidOunce;
+
+                case Volumes.ImperialFluidPint:
+                    return VolumeUnits.ImperialFluidPint;
+
+                case Volumes.ImperialFluidQuart:
+                    return VolumeUnits.ImperialFluidQuart;
+
+                case Volumes.ImperialGallon:
+                    return VolumeUnits.ImperialGallon;
+
+                case Volumes.Milliliter:
+                    return VolumeUnits.Milliliter;
+
+                case Volumes.USGallon:
+                    return VolumeUnits.USGallon;
+            }
+
+            throw new Exception("The text value did not match any of the possible units.");
         }
 
-        public override void SetToRadioButtonEvents()
+        public override void BtnConvert_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var vol = new VolumeConversion(fromVolumeUnits, toVolumeUnits);
+
+            EditText etFrom = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
+            if (etFrom.Text != null)
+            {
+                double from = Convert.ToDouble(etFrom.Text);
+                double toValue = vol.GetConversionResult(from);
+
+                EditText etTo = SV.FindViewById<EditText>(Resource.Id.et_to_prompt);
+                etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
+            }
         }
     }
 }

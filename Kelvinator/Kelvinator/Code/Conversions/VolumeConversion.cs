@@ -31,7 +31,7 @@ namespace KelvinatorX.Code.Conversions
                 { VolumeUnits.ImperialFluidPint, 1.76 },
                 { VolumeUnits.ImperialFluidQuart, 0.88 },
                 { VolumeUnits.ImperialGallon, 0.22 },
-                { VolumeUnits.US_Gallon, 0.26 }
+                { VolumeUnits.USGallon, 0.26 }
 
             };
 

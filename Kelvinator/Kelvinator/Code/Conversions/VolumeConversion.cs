@@ -3,24 +3,19 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
 {
-    public class VolumeConversion
+    public class VolumeConversion : BaseConversions
     {
-        readonly VolumeUnits fromVolume;
-        readonly VolumeUnits toVolume;
-
-        public Dictionary<VolumeUnits, double> ConversionFactors { get; set; }
-
         public VolumeConversion(VolumeUnits from, VolumeUnits to)
         {
-            this.fromVolume = from;
-            this.toVolume = to;
+            this.FromUnit = from;
+            this.ToUnit = to;
 
             ConversionFactors = GetConversionFactors();
         }
 
-        private Dictionary<VolumeUnits, double> GetConversionFactors()
+        public override Dictionary<object, double> GetConversionFactors()
         {
-            var v = new Dictionary<VolumeUnits, double>
+            var v = new Dictionary<object, double>
             {
                 { VolumeUnits.Liter, 1.0 },
                 { VolumeUnits.Milliliter, 1000.0 },
@@ -38,11 +33,11 @@ namespace KelvinatorX.Code.Conversions
             return v;
         }
 
-        public double GetConversionResult(double input)
+        public override double GetConversionResult(double input)
         {
             //TODO: Add error checking.
-            ConversionFactors.TryGetValue(fromVolume, out double fromFactor);
-            ConversionFactors.TryGetValue(toVolume, out double toFactor);
+            ConversionFactors.TryGetValue((VolumeUnits)base.FromUnit, out double fromFactor);
+            ConversionFactors.TryGetValue((VolumeUnits)base.ToUnit, out double toFactor);
 
             return input * fromFactor / toFactor;
         }

@@ -7,7 +7,7 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code
 {
-    public class TimeFragment : BaseFrament
+    public class TimeFragment : BaseFragment
     {
         TimeUnits fromTimeUnits;
         TimeUnits toTimeUnits;

@@ -8,7 +8,7 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code
 {
-    public class TemperatureFragment : BaseFrament
+    public class TemperatureFragment : BaseFragment
     {
         TemperatureUnits fromTempUnit;
         TemperatureUnits toTempUnit;

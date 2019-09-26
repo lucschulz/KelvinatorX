@@ -5,7 +5,7 @@ using Android.Widget;
 
 namespace KelvinatorX.Code
 {
-    public abstract class BaseFrament : Fragment
+    public abstract class BaseFragment : Fragment
     {
         /// <summary>
         /// Some fragments are using a linear layout as their base layout.

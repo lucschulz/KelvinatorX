@@ -8,7 +8,7 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code
 {
-    public class VolumeFragment : BaseFrament
+    public class VolumeFragment : BaseFragment
     {
         VolumeUnits fromVolumeUnits;
         VolumeUnits toVolumeUnits;

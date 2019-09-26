@@ -3,25 +3,19 @@ using Dist = KelvinatorX.Code.Enums.DistanceUnits;
 
 namespace KelvinatorX.Code.Conversions
 {
-    public class DistanceConversions
+    public class DistanceConversions : BaseConversions
     {
-        Dist fromDistance;
-        Dist toDistance;
-
-        public Dictionary<Dist, double> ConversionFactors { get; set; }
-
-
         public DistanceConversions(Dist from, Dist to)
         {
-            this.fromDistance = from;
-            this.toDistance = to;
+            base.FromUnit = from;
+            this.ToUnit = to;
 
             ConversionFactors = GetConversionFactors();
         }
 
-        private Dictionary<Dist, double> GetConversionFactors()
+        public override Dictionary<object, double> GetConversionFactors()
         {
-            Dictionary<Dist, double> d = new Dictionary<Dist, double>
+            var d = new Dictionary<object, double>
             {
                 { Dist.Nanometer, 1.0e-9 },
                 { Dist.Millimeter, 0.001 },
@@ -39,11 +33,11 @@ namespace KelvinatorX.Code.Conversions
             return d;
         }
 
-        public double GetConversiondResult(double input)
+        public override double GetConversionResult(double input)
         {
             //TODO: Add error checking.
-            ConversionFactors.TryGetValue(fromDistance, out double fromFactor);
-            ConversionFactors.TryGetValue(toDistance, out double toFactor);
+            ConversionFactors.TryGetValue((Dist)base.FromUnit, out double fromFactor);
+            ConversionFactors.TryGetValue((Dist)base.ToUnit, out double toFactor);
 
             return input * fromFactor / toFactor;
         }

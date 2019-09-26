@@ -88,7 +88,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\BaseFrament.cs" />
+    <Compile Include="Code\BaseFragment.cs" />
+    <Compile Include="Code\Conversions\BaseConversions.cs" />
     <Compile Include="Code\Conversions\DistanceConversions.cs" />
     <Compile Include="Code\Conversions\TemperatureConversions.cs" />
     <Compile Include="Code\Conversions\TimeConversion.cs" />
@@ -111,11 +112,7 @@
       <DependentUpon>Sec.resx</DependentUpon>
     </Compile>
     <Compile Include="Strings\Distances.cs" />
-    <Compile Include="Strings\Temperatures.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Temperatures.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Strings\Temperatures.cs" />
     <Compile Include="Strings\Times.cs" />
     <Compile Include="Strings\Volumes.cs" />
     <Compile Include="Strings\Weights.cs" />
@@ -247,10 +244,6 @@
     <EmbeddedResource Include="Sec.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Sec.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Strings\Temperatures.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Temperatures.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

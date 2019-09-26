@@ -1,49 +1,44 @@
 ﻿using System.Collections.Generic;
-using Time = KelvinatorX.Code.Enums.TimeUnits;
+using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
 {
-    public class TimeConversion
+    public class TimeConversion : BaseConversions
     {
-        Time fromTime;
-        Time toTime;
-
-        public Dictionary<Time, double> ConversionFactors { get; set; }
-
-        public TimeConversion(Time from, Time to)
+        public TimeConversion(TimeUnits from, TimeUnits to)
         {
-            this.fromTime = from;
-            this.toTime = to;
+            base.FromUnit = from;
+            base.ToUnit = to;
 
             ConversionFactors = GetConversionFactors();
         }
 
-        private Dictionary<Time, double> GetConversionFactors()
+        public override Dictionary<object, double> GetConversionFactors()
         {
-            var t = new Dictionary<Time, double>
+            var t = new Dictionary<object, double>
             {
-                { Time.Hour, 1.0 },
-                { Time.Picosecond, 3.6e+15 },
-                { Time.Nanosecond, 3600002880000.6713867 },
-                { Time.Microsecond, 3.6e+9 },
-                { Time.Millisecond, 3.6e+6 },
-                { Time.Second, 3600 },
-                { Time.Minute, 60 },
-                { Time.Day, 0.0416667 },
-                { Time.Week, 0.00595238 },
-                { Time.Month, 0.00136986260837 },
-                { Time.Year, 0.00011415534246577472655 }
+                { TimeUnits.Hour, 1.0 },
+                { TimeUnits.Picosecond, 3.6e+15 },
+                { TimeUnits.Nanosecond, 3600002880000.6713867 },
+                { TimeUnits.Microsecond, 3.6e+9 },
+                { TimeUnits.Millisecond, 3.6e+6 },
+                { TimeUnits.Second, 3600 },
+                { TimeUnits.Minute, 60 },
+                { TimeUnits.Day, 0.0416667 },
+                { TimeUnits.Week, 0.00595238 },
+                { TimeUnits.Month, 0.00136986260837 },
+                { TimeUnits.Year, 0.00011415534246577472655 }
 
             };
 
             return t;
         }
 
-        public double GetConversionResult(double input)
+        public override double GetConversionResult(double input)
         {
             //TODO: Add error checking.
-            ConversionFactors.TryGetValue(fromTime, out double fromFactor);
-            ConversionFactors.TryGetValue(toTime, out double toFactor);
+            ConversionFactors.TryGetValue((TimeUnits)base.FromUnit, out double fromFactor);
+            ConversionFactors.TryGetValue((TimeUnits)base.ToUnit, out double toFactor);
 
             return input * fromFactor / toFactor;
         }

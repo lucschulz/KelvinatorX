@@ -124,7 +124,7 @@ namespace KelvinatorX.Code
             if (etFromDist.Text != null)
             {
                 double from = Convert.ToDouble(etFromDist.Text);
-                double toValue = conv.GetConversiondResult(from);
+                double toValue = conv.GetConversionResult(from);
 
                 EditText etTo = SV.FindViewById<EditText>(Resource.Id.et_to_prompt);
                 etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);

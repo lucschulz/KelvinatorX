@@ -1,122 +1,35 @@
-﻿using System;
-using Temp = KelvinatorX.Code.Enums.TemperatureUnits;
+﻿using System.Collections.Generic;
+using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
 {
-    public class TemperatureConversions
+    public class TemperatureConversions : BaseConversions
     {
-        Temp fromUnit;
-        Temp toUnit;
-
-
-        public TemperatureConversions(Temp fromTempUnit, Temp toTempUnit)
+        public TemperatureConversions(TemperatureUnits fromTempUnit, TemperatureUnits toTempUnit)
         {
-            fromUnit = fromTempUnit;
-            toUnit = toTempUnit;
+            base.FromUnit = fromTempUnit;
+            base.ToUnit = toTempUnit;
         }
 
+        public override Dictionary<object, double> GetConversionFactors()
+        {
+            var t = new Dictionary<object, double>
+            {
+                { TemperatureUnits.Celsius, 1.0 },
+                { TemperatureUnits.Fahrentheit, 1.8 },
+                { TemperatureUnits.Kelvin, 273.15 }
+            };
 
-        private double CtoK(double c)
-        {            
-            return Math.Round(c + 273.15, 2);
+            return t;
         }
 
-        private double CtoF(double c)
+        public override double GetConversionResult(double input)
         {
-            return c * 1.80 + 32;
-        }
+            // TODO: Add error checking.
+            ConversionFactors.TryGetValue((TemperatureUnits)base.FromUnit, out double fromFactor);
+            ConversionFactors.TryGetValue((TemperatureUnits)base.FromUnit, out double toFactor);
 
-        private double KtoC(double k)
-        {
-            return Math.Round(k + 273.15);
-        }
-
-        private double KtoF(double k)
-        {
-            double result = k * 1.80 - 459.67;
-            return Math.Round(result, 2);
-        }
-
-        private double FtoC(double f)
-        {
-            return Math.Round((f - 32) / 1.8);
-        }
-
-        private double FtoK(double f)
-        {
-            double result = f + 459.67;
-
-            if (result != 0)
-            {
-                return Math.Round(result * 5 / 9, 2);
-            }
-            
-            return 0;
-        }
-
-
-
-
-        public double GetConversiondResult(double from)
-        {
-            if (fromUnit == Temp.Celsius)
-            {
-                return GetFromCelsius(from);
-            }
-
-            else if (fromUnit == Temp.Kelvin)
-            {
-                return GetFromKelvin(from);
-            }
-
-            else if (fromUnit == Temp.Fahrentheit)
-            {
-                return GetFromFahrenheit(from);
-            }
-
-            return 0;
-        }
-
-        private double GetFromCelsius(double c)
-        {
-            if (toUnit == Temp.Kelvin)
-            {
-                return CtoK(c);
-            }
-            else if (toUnit == Temp.Fahrentheit)
-            {
-                return CtoF(c);
-            }
-
-            return 0;
-        }
-
-        private double GetFromKelvin(double k)
-        {
-            if (toUnit == Temp.Celsius)
-            {
-                return KtoC(k);
-            }
-            else if (toUnit == Temp.Fahrentheit)
-            {
-                return KtoF(k);
-            }
-
-            return 0;
-        }
-
-        private double GetFromFahrenheit(double f)
-        {
-            if (toUnit == Temp.Celsius)
-            {
-                return FtoC(f);
-            }
-            else if (toUnit == Temp.Kelvin)
-            {
-                return FtoK(f);
-            }
-
-            return 0;
+            return input * fromFactor / toFactor;
         }
     }
 }

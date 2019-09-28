@@ -10,9 +10,6 @@ namespace KelvinatorX.Code
 {
     public class TemperatureFragment : BaseFragment
     {
-        TemperatureUnits fromTempUnit;
-        TemperatureUnits toTempUnit;
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -20,75 +17,49 @@ namespace KelvinatorX.Code
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            //TODO: Change to ScrollView
-            LL = (LinearLayout)inflater.Inflate(Resource.Layout.fragment_temperature, container, false);
+            SV = inflater.Inflate(Resource.Layout.fragment_temperature, container, false) as ScrollView;
 
-            RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_temp_from);
-            RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_temp_to);
+            RgFrom = SV.FindViewById<RadioGroup>(Resource.Id.rg_temp_from);
+            RgTo = SV.FindViewById<RadioGroup>(Resource.Id.rg_temp_to);
 
             ConfigureControls();
 
-            return LL;
-        }
-
-        public override void SetFromUnit()
-        {
-            int rbId = RgFrom.CheckedRadioButtonId;
-            RadioButton rb = LL.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            if (rbText == Temperatures.Celsius)
-            {
-                fromTempUnit = TemperatureUnits.Celsius;
-            }
-            else if (rbText == Temperatures.Kelvin)
-            {
-                fromTempUnit = TemperatureUnits.Kelvin;
-            }
-            else if (rbText == Temperatures.Fahrenheit)
-            {
-                fromTempUnit = TemperatureUnits.Fahrentheit;
-            }
-        }
-
-        public override void SetToUnit()
-        {
-            int rbId = RgTo.CheckedRadioButtonId;
-            RadioButton rb = LL.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            if (rbText == Temperatures.Celsius)
-            {
-                toTempUnit = TemperatureUnits.Celsius;
-            }
-            else if (rbText == Temperatures.Kelvin)
-            {
-                toTempUnit = TemperatureUnits.Kelvin;
-            }
-            else if (rbText == Temperatures.Fahrenheit)
-            {
-                toTempUnit = TemperatureUnits.Fahrentheit;
-            }
-        }
-
-        public override void BtnConvert_Click(object sender, EventArgs e)
-        {
-            var conv = new TemperatureConversions(fromTempUnit, toTempUnit);
-
-            EditText etFromTemp = LL.FindViewById<EditText>(Resource.Id.et_from_prompt);
-            if (etFromTemp.Text != null)
-            {
-                double input = Convert.ToDouble(etFromTemp.Text);
-                double toValue = conv.GetConversionResult(input);
-
-                EditText etTo = LL.FindViewById<EditText>(Resource.Id.et_to_prompt);
-                etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
-            }
+            return SV;
         }
 
         public override object SetUnit(string rbText)
         {
-            throw new NotImplementedException();
+            switch (rbText)
+            {
+                case Temperatures.Celsius:
+                    return TemperatureUnits.Celsius;
+
+                case Temperatures.Fahrenheit:
+                    return TemperatureUnits.Fahrentheit;
+
+                case Temperatures.Kelvin:
+                    return TemperatureUnits.Kelvin;
+            }
+
+            throw new Exception("The text value did not match any of the possible units.");
+        }
+
+        public override void BtnConvert_Click(object sender, EventArgs e)
+        {
+            var fromUnit = (TemperatureUnits)base.FromUnitType;
+            var toUnit = (TemperatureUnits)base.ToUnitType;
+
+            var conv = new TemperatureConversions(fromUnit, toUnit);
+
+            EditText etFrom = LL.FindViewById<EditText>(Resource.Id.et_from_prompt);
+            if (etFrom.Text != null)
+            {
+                double fromValue = Convert.ToDouble(etFrom.Text);
+                double toValue = conv.GetConversionResult(fromValue);
+
+                EditText etTo = LL.FindViewById<EditText>(Resource.Id.et_to_prompt);
+                etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
+            }
         }
     }
 }

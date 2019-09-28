@@ -3,9 +3,9 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
 {
-    public class VolumeConversion : BaseConversions
+    public class VolumeConversions : BaseConversions
     {
-        public VolumeConversion(VolumeUnits from, VolumeUnits to)
+        public VolumeConversions(VolumeUnits from, VolumeUnits to)
         {
             this.FromUnit = from;
             this.ToUnit = to;

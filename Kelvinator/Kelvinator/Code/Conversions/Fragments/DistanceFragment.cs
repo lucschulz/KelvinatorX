@@ -10,9 +10,6 @@ namespace KelvinatorX.Code
 {
     public class DistanceFragment : BaseFragment
     {
-        DistanceUnits fromDistUnits;
-        DistanceUnits toDistUnits;
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -73,13 +70,16 @@ namespace KelvinatorX.Code
 
         public override void BtnConvert_Click(object sender, EventArgs e)
         {
-            var conv = new DistanceConversions(fromDistUnits, toDistUnits);
+            var fromUnit = (DistanceUnits)base.FromUnitType;
+            var toUnit = (DistanceUnits)base.ToUnitType;
+
+            var conv = new DistanceConversions(fromUnit, toUnit);
 
             EditText etFromDist = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
             if (etFromDist.Text != null)
             {
-                double from = Convert.ToDouble(etFromDist.Text);
-                double toValue = conv.GetConversionResult(from);
+                double fromValue = Convert.ToDouble(etFromDist.Text);
+                double toValue = conv.GetConversionResult(fromValue);
 
                 EditText etTo = SV.FindViewById<EditText>(Resource.Id.et_to_prompt);
                 etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);

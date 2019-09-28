@@ -73,7 +73,7 @@ namespace KelvinatorX.Code
             var fromUnit = (VolumeUnits)base.FromUnitType;
             var toUnit = (VolumeUnits)base.ToUnitType;
             
-            var vol = new VolumeConversion(fromUnit, toUnit);
+            var vol = new VolumeConversions(fromUnit, toUnit);
 
             EditText etFrom = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
             if (etFrom.Text != null)

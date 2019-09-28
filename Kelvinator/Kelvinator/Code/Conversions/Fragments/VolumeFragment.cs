@@ -30,25 +30,6 @@ namespace KelvinatorX.Code
             return SV;
         }
 
-        public override void SetFromRadioButtonEvents()
-        {
-            RadioButton[] rbsFrom = GetFromRadioButtons();
-            for (int i = 0; i < rbsFrom.Length; i++)
-            {
-                rbsFrom[i].Click += FromRadioButton_Click;
-            }
-        }
-        
-
-        public override void SetToRadioButtonEvents()
-        {
-            RadioButton[] rbsTo = GetToRadioButtons();
-            for (int i = 0; i < rbsTo.Length; i++)
-            {
-                rbsTo[i].Click += ToRadioButton_Click;
-            }
-        }
-
         public override void SetFromUnit()
         {
             int rbId = RgFrom.CheckedRadioButtonId;

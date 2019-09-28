@@ -70,15 +70,37 @@ namespace KelvinatorX.Code
 
 
         /// <summary>
-        /// Implement in derived class to configure the events associated to clicking a 'FROM' RadioButton.
+        /// Creates an array of all the 'FROM' radio buttons.
         /// </summary>
-        public abstract void SetFromRadioButtonEvents();
+        public void SetFromRadioButtonEvents()
+        {
+            RadioButton[] rbsFrom = GetFromRadioButtons();
+            for (int i = 0; i < rbsFrom.Length; i++)
+            {
+                rbsFrom[i].Click += FromRadioButton_Click;
+            }
+        }
+        public void FromRadioButton_Click(object sender, EventArgs e)
+        {
+            SetFromUnit();
+        }
 
 
         /// <summary>
-        /// Implement in derived class to configure the events associated to clicking a 'TO' RadioButton.
+        /// Creates an array of all the 'TO' radio buttons.
         /// </summary>
-        public abstract void SetToRadioButtonEvents();
+        public void SetToRadioButtonEvents()
+        {
+            RadioButton[] rbsTo = GetToRadioButtons();
+            for (int i = 0; i < rbsTo.Length; i++)
+            {
+                rbsTo[i].Click += ToRadioButton_Click;
+            }
+        }
+        public void ToRadioButton_Click(object sender, EventArgs e)
+        {
+            SetToUnit();
+        }
 
 
         /// <summary>
@@ -126,17 +148,5 @@ namespace KelvinatorX.Code
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public abstract void BtnConvert_Click(object sender, EventArgs e);
-
-
-        public void FromRadioButton_Click(object sender, EventArgs e)
-        {
-            SetFromUnit();
-        }
-
-
-        public void ToRadioButton_Click(object sender, EventArgs e)
-        {
-            SetToUnit();
-        }
     }
 }

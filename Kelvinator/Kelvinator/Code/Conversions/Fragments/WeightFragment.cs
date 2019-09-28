@@ -15,31 +15,22 @@ namespace KelvinatorX.Code
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            LL = inflater.Inflate(Resource.Layout.fragment_weight, container, false) as LinearLayout;
+            SV = inflater.Inflate(Resource.Layout.fragment_weight, container, false) as ScrollView;
 
-            RgFrom = LL.FindViewById<RadioGroup>(Resource.Id.rg_from_weights);
-            RgTo = LL.FindViewById<RadioGroup>(Resource.Id.rg_to_weights);
+            RgFrom = SV.FindViewById<RadioGroup>(Resource.Id.rg_from_weights);
+            RgTo = SV.FindViewById<RadioGroup>(Resource.Id.rg_to_weights);
 
             base.ConfigureControls();
 
-            return LL;
+            return SV;
         }
+
         public override void BtnConvert_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        public override void SetFromRadioButtonEvents()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void SetFromUnit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void SetToRadioButtonEvents()
         {
             throw new NotImplementedException();
         }

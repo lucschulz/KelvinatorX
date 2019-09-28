@@ -31,14 +31,5 @@ namespace KelvinatorX.Code.Conversions
 
             return w;
         }
-
-        public override double GetConversionResult(double input)
-        {
-            //TODO: Add error checking.
-            ConversionFactors.TryGetValue((WeightUnits)base.FromUnit, out double fromFactor);
-            ConversionFactors.TryGetValue((WeightUnits)base.ToUnit, out double toFactor);
-
-            return input * fromFactor / toFactor;
-        }
     }
 }

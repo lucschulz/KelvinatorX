@@ -32,14 +32,5 @@ namespace KelvinatorX.Code.Conversions
 
             return d;
         }
-
-        public override double GetConversionResult(double input)
-        {
-            //TODO: Add error checking.
-            ConversionFactors.TryGetValue((Dist)base.FromUnit, out double fromFactor);
-            ConversionFactors.TryGetValue((Dist)base.ToUnit, out double toFactor);
-
-            return input * fromFactor / toFactor;
-        }
     }
 }

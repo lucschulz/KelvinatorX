@@ -22,14 +22,5 @@ namespace KelvinatorX.Code.Conversions
 
             return t;
         }
-
-        public override double GetConversionResult(double input)
-        {
-            // TODO: Add error checking.
-            ConversionFactors.TryGetValue((TemperatureUnits)base.FromUnit, out double fromFactor);
-            ConversionFactors.TryGetValue((TemperatureUnits)base.FromUnit, out double toFactor);
-
-            return input * fromFactor / toFactor;
-        }
     }
 }

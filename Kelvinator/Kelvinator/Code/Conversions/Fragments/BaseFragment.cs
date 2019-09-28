@@ -110,7 +110,14 @@ namespace KelvinatorX.Code
         public abstract object SetUnit(string rbText);
 
 
-        public abstract void ConfigureEvents();
+        public void ConfigureEvents()
+        {
+            SetFromRadioButtonEvents();
+            SetToRadioButtonEvents();
+
+            Button btnConvert = SV.FindViewById<Button>(Resource.Id.btn_convert);
+            btnConvert.Click += BtnConvert_Click;
+        }
 
 
         /// <summary>

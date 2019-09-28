@@ -71,15 +71,6 @@ namespace KelvinatorX.Code
             }
         }
 
-        public override void ConfigureEvents()
-        {
-            SetFromRadioButtonEvents();
-            SetToRadioButtonEvents();
-
-            Button btnConvert = LL.FindViewById<Button>(Resource.Id.btn_convert);
-            btnConvert.Click += BtnConvert_Click;
-        }
-
         public override void SetFromRadioButtonEvents()
         {
             RadioButton[] rbsFrom = GetFromRadioButtons();

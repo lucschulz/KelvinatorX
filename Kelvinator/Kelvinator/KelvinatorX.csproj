@@ -88,20 +88,20 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\BaseFragment.cs" />
+    <Compile Include="Code\Conversions\Fragments\BaseFragment.cs" />
     <Compile Include="Code\Conversions\BaseConversions.cs" />
     <Compile Include="Code\Conversions\DistanceConversions.cs" />
     <Compile Include="Code\Conversions\TemperatureConversions.cs" />
     <Compile Include="Code\Conversions\TimeConversions.cs" />
     <Compile Include="Code\Conversions\VolumeConversion.cs" />
     <Compile Include="Code\Conversions\WeightConversion.cs" />
-    <Compile Include="Code\DistanceFragment.cs" />
+    <Compile Include="Code\Conversions\Fragments\DistanceFragment.cs" />
     <Compile Include="Code\Enums.cs" />
     <Compile Include="Code\StartFragment.cs" />
-    <Compile Include="Code\TemperatureFragment.cs" />
-    <Compile Include="Code\TimeFragment.cs" />
-    <Compile Include="Code\VolumeFragment.cs" />
-    <Compile Include="Code\WeightFragment.cs" />
+    <Compile Include="Code\Conversions\Fragments\TemperatureFragment.cs" />
+    <Compile Include="Code\Conversions\Fragments\TimeFragment.cs" />
+    <Compile Include="Code\Conversions\Fragments\VolumeFragment.cs" />
+    <Compile Include="Code\Conversions\Fragments\WeightFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Code\AboutFragment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

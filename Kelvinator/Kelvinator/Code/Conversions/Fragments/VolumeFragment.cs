@@ -30,16 +30,6 @@ namespace KelvinatorX.Code
             return SV;
         }
 
-        public override void ConfigureEvents()
-        {
-            // TODO: Move this to abtract class. Method is the same in each derived class.
-            SetFromRadioButtonEvents();
-            SetToRadioButtonEvents();
-
-            Button btnConvert = SV.FindViewById<Button>(Resource.Id.btn_convert);
-            btnConvert.Click += BtnConvert_Click;
-        }
-
         public override void SetFromRadioButtonEvents()
         {
             RadioButton[] rbsFrom = GetFromRadioButtons();

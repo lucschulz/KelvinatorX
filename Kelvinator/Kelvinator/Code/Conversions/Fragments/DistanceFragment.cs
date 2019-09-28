@@ -30,15 +30,6 @@ namespace KelvinatorX.Code
             return SV;
         }
 
-        public override void ConfigureEvents()
-        {
-            SetFromRadioButtonEvents();
-            SetToRadioButtonEvents();
-
-            Button btnConvert = SV.FindViewById<Button>(Resource.Id.btn_convert);
-            btnConvert.Click += BtnConvert_Click;
-        }
-
         public override void SetFromUnit()
         {
             int rbId = RgFrom.CheckedRadioButtonId;

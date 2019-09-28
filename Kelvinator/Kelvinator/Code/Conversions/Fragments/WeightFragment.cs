@@ -29,11 +29,6 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public override void ConfigureEvents()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void SetFromRadioButtonEvents()
         {
             throw new NotImplementedException();

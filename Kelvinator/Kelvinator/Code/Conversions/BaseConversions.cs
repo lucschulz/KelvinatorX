@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace KelvinatorX.Code.Conversions
 {
@@ -11,6 +12,12 @@ namespace KelvinatorX.Code.Conversions
 
         public abstract Dictionary<object, double> GetConversionFactors();
 
-        public abstract double GetConversionResult(double input);
+        public double GetConversionResult(double input)
+        {
+            ConversionFactors.TryGetValue(FromUnit, out double fromFactor);
+            ConversionFactors.TryGetValue(ToUnit, out double toFactor);
+
+            return Math.Round(input * fromFactor / toFactor, 1, MidpointRounding.AwayFromZero);
+        }
     }
 }

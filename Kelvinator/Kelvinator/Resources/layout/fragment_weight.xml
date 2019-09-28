@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        
+            <LinearLayout
+        android:orientation="vertical"
         android:layout_weight="1"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layV_from_weights"
         android:background="@drawable/unit_list_border">
@@ -73,12 +84,12 @@
                 android:layout_height="match_parent"
                 layout="@layout/prompt_from" />
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:orientation="vertical"
         android:layout_weight="1"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layV_to_weights"
         android:background="@drawable/unit_list_border">
@@ -143,5 +154,11 @@
                 android:layout_height="match_parent"
                 layout="@layout/prompt_to" />
     </LinearLayout>
-        
-</LinearLayout>
+            </LinearLayout>
+    
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/control_convert_button" />
+    </LinearLayout>
+</ScrollView>

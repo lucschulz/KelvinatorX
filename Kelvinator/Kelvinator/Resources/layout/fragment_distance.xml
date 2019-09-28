@@ -6,11 +6,8 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/linearLayout1">
+        android:layout_height="match_parent" >
 
         <LinearLayout
         android:orientation="horizontal"
@@ -168,6 +165,5 @@
         layout="@layout/control_convert_button" />
 
     </LinearLayout>
-
 </ScrollView>
          

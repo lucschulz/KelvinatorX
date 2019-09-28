@@ -30,16 +30,6 @@ namespace KelvinatorX.Code
             throw new NotImplementedException();
         }
 
-        public override void SetFromUnit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void SetToUnit()
-        {
-            throw new NotImplementedException();
-        }
-
         public override object SetUnit(string rbText)
         {
             throw new NotImplementedException();

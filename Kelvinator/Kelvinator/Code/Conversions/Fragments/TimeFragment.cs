@@ -10,10 +10,6 @@ namespace KelvinatorX.Code
 {
     public class TimeFragment : BaseFragment
     {
-        TimeUnits fromTimeUnits;
-        TimeUnits toTimeUnits;
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,42 +25,6 @@ namespace KelvinatorX.Code
             ConfigureControls();
 
             return SV;
-        }
-
-        public override void SetFromUnit()
-        {
-            int rbId = RgFrom.CheckedRadioButtonId;
-            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            fromTimeUnits = (TimeUnits)SetUnit(rbText);
-        }
-
-        public override void SetToUnit()
-        {
-            int rbId = RgTo.CheckedRadioButtonId;
-            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            toTimeUnits = (TimeUnits)SetUnit(rbText);
-        }
-
-        public override void SetFromRadioButtonEvents()
-        {
-            RadioButton[] rbsFrom = GetFromRadioButtons();
-            for (int i = 0; i < rbsFrom.Length; i++)
-            {
-                rbsFrom[i].Click += base.FromRadioButton_Click;
-            }
-        }
-
-        public override void SetToRadioButtonEvents()
-        {
-            RadioButton[] rbsTo = GetToRadioButtons();
-            for (int i = 0; i < rbsTo.Length; i++)
-            {
-                rbsTo[i].Click += base.ToRadioButton_Click;
-            }
         }
 
         public override object SetUnit(string rbText)
@@ -110,7 +70,10 @@ namespace KelvinatorX.Code
 
         public override void BtnConvert_Click(object sender, EventArgs e)
         {
-            var conv = new TimeConversions(fromTimeUnits, toTimeUnits);
+            var fromUnit = (TimeUnits)base.FromUnitType;
+            var toUnit = (TimeUnits)base.ToUnitType;
+
+            var conv = new TimeConversions(fromUnit, toUnit);
 
             EditText etFrom = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
             if (etFrom.Text != null)

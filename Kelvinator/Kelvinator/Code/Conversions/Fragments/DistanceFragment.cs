@@ -30,24 +30,6 @@ namespace KelvinatorX.Code
             return SV;
         }
 
-        public override void SetFromUnit()
-        {
-            int rbId = RgFrom.CheckedRadioButtonId;
-            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            fromDistUnits = (DistanceUnits)SetUnit(rbText);
-        }
-
-        public override void SetToUnit()
-        {
-            int rbId = RgTo.CheckedRadioButtonId;
-            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            toDistUnits = (DistanceUnits)SetUnit(rbText);
-        }
-
         public override object SetUnit(string rbText)
         {
             switch (rbText)
@@ -87,24 +69,6 @@ namespace KelvinatorX.Code
             }
 
             throw new Exception("The text value did not match any of the possible units.");
-        }
-
-        public override void SetFromRadioButtonEvents()
-        {
-            RadioButton[] rbsFrom = GetFromRadioButtons();
-            for (int i = 0; i < rbsFrom.Length; i++)
-            {
-                rbsFrom[i].Click += base.FromRadioButton_Click;
-            }
-        }
-
-        public override void SetToRadioButtonEvents()
-        {
-            RadioButton[] rbsTo = GetToRadioButtons();
-            for (int i = 0; i < rbsTo.Length; i++)
-            {
-                rbsTo[i].Click += base.ToRadioButton_Click;
-            }
         }
 
         public override void BtnConvert_Click(object sender, EventArgs e)

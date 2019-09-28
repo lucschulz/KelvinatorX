@@ -3,9 +3,9 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
 {
-    public class WeightConversion : BaseConversions
+    public class WeightConversions : BaseConversions
     {
-        public WeightConversion(WeightUnits from, WeightUnits to)
+        public WeightConversions(WeightUnits from, WeightUnits to)
         {
             base.FromUnit = from;
             base.ToUnit = to;

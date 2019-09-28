@@ -1,12 +1,15 @@
 ﻿using System;
-using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V4.App;
 
 namespace KelvinatorX.Code
 {
     public abstract class BaseFragment : Fragment
     {
+        public int FromUnitType { get; set; }
+        public int ToUnitType { get; set; }
+
         /// <summary>
         /// Some fragments are using a linear layout as their base layout.
         /// This should eventually be changed to scroll layouts across the board.
@@ -116,10 +119,24 @@ namespace KelvinatorX.Code
         }
 
 
-        public abstract void SetFromUnit();
+        public virtual void SetFromUnit()
+        {
+            int rbId = RgFrom.CheckedRadioButtonId;
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
+            string rbText = rb.Text;
+
+            FromUnitType = (int)SetUnit(rbText);
+        }
 
 
-        public abstract void SetToUnit();
+        public virtual void SetToUnit()
+        {
+            int rbId = RgTo.CheckedRadioButtonId;
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
+            string rbText = rb.Text;
+
+            ToUnitType = (int)SetUnit(rbText);
+        }
 
 
         /// <summary>

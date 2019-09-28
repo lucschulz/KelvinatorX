@@ -71,25 +71,6 @@ namespace KelvinatorX.Code
             }
         }
 
-        public override void SetFromRadioButtonEvents()
-        {
-            RadioButton[] rbsFrom = GetFromRadioButtons();
-            for (int i = 0; i < rbsFrom.Length; i++)
-            {
-                rbsFrom[i].Click += FromRadioButton_Click;
-            }
-        }
-
-
-        public override void SetToRadioButtonEvents()
-        {
-            RadioButton[] rbsTo = GetToRadioButtons();
-            for (int i = 0; i < rbsTo.Length; i++)
-            {
-                rbsTo[i].Click += ToRadioButton_Click;
-            }
-        }
-
         public override void BtnConvert_Click(object sender, EventArgs e)
         {
             var conv = new TemperatureConversions(fromTempUnit, toTempUnit);

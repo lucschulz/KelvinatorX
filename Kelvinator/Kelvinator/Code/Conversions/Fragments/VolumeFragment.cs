@@ -9,10 +9,7 @@ using static KelvinatorX.Code.Enums;
 namespace KelvinatorX.Code
 {
     public class VolumeFragment : BaseFragment
-    {
-        VolumeUnits fromVolumeUnits;
-        VolumeUnits toVolumeUnits;
-        
+    {        
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -28,24 +25,6 @@ namespace KelvinatorX.Code
             base.ConfigureControls();
 
             return SV;
-        }
-
-        public override void SetFromUnit()
-        {
-            int rbId = RgFrom.CheckedRadioButtonId;
-            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            fromVolumeUnits = (VolumeUnits)SetUnit(rbText);
-        }
-
-        public override void SetToUnit()
-        {
-            int rbId = RgTo.CheckedRadioButtonId;
-            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
-            string rbText = rb.Text;
-
-            toVolumeUnits = (VolumeUnits)SetUnit(rbText);
         }
 
         public override object SetUnit(string rbText)
@@ -91,13 +70,16 @@ namespace KelvinatorX.Code
 
         public override void BtnConvert_Click(object sender, EventArgs e)
         {
-            var vol = new VolumeConversion(fromVolumeUnits, toVolumeUnits);
+            var fromUnit = (VolumeUnits)base.FromUnitType;
+            var toUnit = (VolumeUnits)base.ToUnitType;
+            
+            var vol = new VolumeConversion(fromUnit, toUnit);
 
             EditText etFrom = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
             if (etFrom.Text != null)
             {
-                double from = Convert.ToDouble(etFrom.Text);
-                double toValue = vol.GetConversionResult(from);
+                double fromValue = Convert.ToDouble(etFrom.Text);
+                double toValue = vol.GetConversionResult(fromValue);
 
                 EditText etTo = SV.FindViewById<EditText>(Resource.Id.et_to_prompt);
                 etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);

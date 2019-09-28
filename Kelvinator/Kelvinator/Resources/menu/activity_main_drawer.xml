@@ -12,22 +12,21 @@
             android:id="@+id/nav_distance"
             android:title="Distance"
             android:visible ="true"
-            android:icon="@drawable/car_bus" />
-      <!--HIDDEN-->
+            android:icon="@drawable/car_bus" />      
       <item
             android:id="@+id/nav_weight"
             android:title="Weight"
-            android:visible ="false"
+            android:visible ="true"
             android:icon="@drawable/weight" />
         <item
             android:id="@+id/nav_volume"
             android:title="Volume"
-            android:visible ="false"
+            android:visible ="true"
             android:icon="@drawable/beaker" />
         <item
             android:id="@+id/nav_time"
             android:title="Time"
-            android:visible ="false"
+            android:visible ="true"
             android:icon="@drawable/hourglass" />
           
     </group>

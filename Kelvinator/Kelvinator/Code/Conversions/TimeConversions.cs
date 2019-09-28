@@ -3,9 +3,9 @@ using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
 {
-    public class TimeConversion : BaseConversions
+    public class TimeConversions : BaseConversions
     {
-        public TimeConversion(TimeUnits from, TimeUnits to)
+        public TimeConversions(TimeUnits from, TimeUnits to)
         {
             base.FromUnit = from;
             base.ToUnit = to;

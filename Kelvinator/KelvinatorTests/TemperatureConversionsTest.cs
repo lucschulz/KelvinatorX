@@ -12,12 +12,12 @@ namespace KelvinatorTests
         {
             var t = new TemperatureConversions(Temp.Fahrentheit, Temp.Kelvin);
 
-            double f = t.GetConversiondResult(10);
+            double f = t.GetConversionResult(10);
             double k = 260.93;
 
             Assert.AreEqual(f, k);
 
-            f = t.GetConversiondResult(0);
+            f = t.GetConversionResult(0);
             k = 255.37;
 
             Assert.AreEqual(f, k);
@@ -29,7 +29,7 @@ namespace KelvinatorTests
         {
             var t = new TemperatureConversions(Temp.Fahrentheit, Temp.Kelvin);
 
-            double f = t.GetConversiondResult(-32);
+            double f = t.GetConversionResult(-32);
             double k = 237.59;
 
             Assert.AreEqual(f, k);
@@ -41,7 +41,7 @@ namespace KelvinatorTests
         {
             var t = new TemperatureConversions(Temp.Celsius, Temp.Kelvin);
 
-            double c = t.GetConversiondResult(-273.15);
+            double c = t.GetConversionResult(-273.15);
             double k = 0;
 
             Assert.AreEqual(c, k);
@@ -53,7 +53,7 @@ namespace KelvinatorTests
         {
             var t = new TemperatureConversions(Temp.Celsius, Temp.Fahrentheit);
 
-            double c = t.GetConversiondResult(0);
+            double c = t.GetConversionResult(0);
             double f = 32;
 
             Assert.AreEqual(c, f);
@@ -65,7 +65,7 @@ namespace KelvinatorTests
         {
             var t = new TemperatureConversions(Temp.Kelvin, Temp.Celsius);
 
-            double k = t.GetConversiondResult(-273.15);
+            double k = t.GetConversionResult(-273.15);
             double c = 0;
 
             Assert.AreEqual(k, c);
@@ -77,7 +77,7 @@ namespace KelvinatorTests
         {
             var t = new TemperatureConversions(Temp.Kelvin, Temp.Fahrentheit);
 
-            double k = t.GetConversiondResult(-45);
+            double k = t.GetConversionResult(-45);
             double f = -540.67;
 
             Assert.AreEqual(k, f);

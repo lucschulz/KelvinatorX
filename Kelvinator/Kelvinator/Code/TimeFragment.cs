@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using KelvinatorX.Code.Conversions;
 using KelvinatorX.Strings;
 using static KelvinatorX.Code.Enums;
 
@@ -30,6 +31,15 @@ namespace KelvinatorX.Code
             return SV;
         }
 
+        public override void ConfigureEvents()
+        {
+            SetFromRadioButtonEvents();
+            SetToRadioButtonEvents();
+
+            Button btnConvert = SV.FindViewById<Button>(Resource.Id.btn_convert);
+            btnConvert.Click += BtnConvert_Click;
+        }
+
         public override void SetFromUnit()
         {
             int rbId = RgFrom.CheckedRadioButtonId;
@@ -41,27 +51,29 @@ namespace KelvinatorX.Code
 
         public override void SetToUnit()
         {
-            throw new NotImplementedException();
-        }
+            int rbId = RgTo.CheckedRadioButtonId;
+            RadioButton rb = SV.FindViewById<RadioButton>(rbId);
+            string rbText = rb.Text;
 
-        public override void ConfigureEvents()
-        {
-            throw new NotImplementedException();
+            toTimeUnits = (TimeUnits)SetUnit(rbText);
         }
 
         public override void SetFromRadioButtonEvents()
         {
-            throw new NotImplementedException();
+            RadioButton[] rbsFrom = GetFromRadioButtons();
+            for (int i = 0; i < rbsFrom.Length; i++)
+            {
+                rbsFrom[i].Click += base.FromRadioButton_Click;
+            }
         }
 
         public override void SetToRadioButtonEvents()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void BtnConvert_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            RadioButton[] rbsTo = GetToRadioButtons();
+            for (int i = 0; i < rbsTo.Length; i++)
+            {
+                rbsTo[i].Click += base.ToRadioButton_Click;
+            }
         }
 
         public override object SetUnit(string rbText)
@@ -103,6 +115,21 @@ namespace KelvinatorX.Code
             }
 
             throw new Exception("The text value did not match any of the possible units.");
+        }
+
+        public override void BtnConvert_Click(object sender, EventArgs e)
+        {
+            var conv = new TimeConversions(fromTimeUnits, toTimeUnits);
+
+            EditText etFrom = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
+            if (etFrom.Text != null)
+            {
+                double from = Convert.ToDouble(etFrom.Text);
+                double toValue = conv.GetConversionResult(from);
+
+                EditText etTo = SV.FindViewById<EditText>(Resource.Id.et_to_prompt);
+                etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
+            }
         }
     }
 }

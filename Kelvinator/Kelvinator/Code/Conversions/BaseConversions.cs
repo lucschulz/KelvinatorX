@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
 {
@@ -16,8 +17,10 @@ namespace KelvinatorX.Code.Conversions
         {
             ConversionFactors.TryGetValue(FromUnit, out double fromFactor);
             ConversionFactors.TryGetValue(ToUnit, out double toFactor);
-
-            return Math.Round(input * fromFactor / toFactor, 1, MidpointRounding.AwayFromZero);
+                        
+            return Math.Round(input * fromFactor / toFactor, GetRoundToDecimalsValue(), MidpointRounding.AwayFromZero);
         }
+
+        public abstract int GetRoundToDecimalsValue();
     }
 }

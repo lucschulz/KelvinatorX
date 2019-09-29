@@ -39,5 +39,32 @@ namespace KelvinatorX.Code.Conversions
 
             return t;
         }
+
+        public override int GetRoundToDecimalsValue()
+        {
+            TimeUnits toUnit = (TimeUnits)ToUnit;
+
+            switch (toUnit)
+            {
+                case TimeUnits.Second:
+                case TimeUnits.Millisecond:
+                case TimeUnits.Microsecond:
+                case TimeUnits.Nanosecond:
+                case TimeUnits.Picosecond:
+                    return 5;
+
+                case TimeUnits.Minute:
+                    return 2;
+
+                case TimeUnits.Hour:
+                case TimeUnits.Day:
+                case TimeUnits.Week:
+                case TimeUnits.Month:
+                case TimeUnits.Year:
+                    return 1;
+            }
+
+            throw new Exception("The 'TO' unit enum was improperly defined.");
+        }
     }
 }

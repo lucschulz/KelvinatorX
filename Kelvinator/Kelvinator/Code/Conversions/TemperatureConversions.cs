@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
@@ -21,6 +22,21 @@ namespace KelvinatorX.Code.Conversions
             };
 
             return t;
+        }
+
+        public override int GetRoundToDecimalsValue()
+        {
+            TemperatureUnits toUnit = (TemperatureUnits)ToUnit;
+
+            switch (toUnit)
+            {
+                case TemperatureUnits.Celsius:
+                case TemperatureUnits.Kelvin:
+                case TemperatureUnits.Fahrentheit:
+                    return 3;
+            }
+
+            throw new Exception("The 'TO' unit enum was improperly defined.");
         }
     }
 }

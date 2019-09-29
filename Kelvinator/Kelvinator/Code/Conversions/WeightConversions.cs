@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
@@ -30,6 +31,33 @@ namespace KelvinatorX.Code.Conversions
             };
 
             return w;
+        }
+
+        public override int GetRoundToDecimalsValue()
+        {
+            WeightUnits toUnit = (WeightUnits)ToUnit;
+
+            switch (toUnit)
+            {
+                case WeightUnits.Pound:
+                case WeightUnits.Ounce:
+                case WeightUnits.Carrat:
+                case WeightUnits.Kilogram:                    
+                case WeightUnits.Gram:                    
+                case WeightUnits.Milligram:
+                    return 3;
+
+                case WeightUnits.MetricTon:
+                case WeightUnits.ShortTon:
+                case WeightUnits.LongTon:
+                    return 2;
+                                    
+                case WeightUnits.AtomicMassUnit:
+                    return 1;
+                    
+            }
+
+            throw new Exception("The 'TO' unit enum was improperly defined.");
         }
     }
 }

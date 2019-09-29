@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using static KelvinatorX.Code.Enums;
 
 namespace KelvinatorX.Code.Conversions
@@ -31,6 +32,31 @@ namespace KelvinatorX.Code.Conversions
             };
 
             return v;
+        }
+
+        public override int GetRoundToDecimalsValue()
+        {
+            VolumeUnits toUnit = (VolumeUnits)ToUnit;
+
+            switch (toUnit)
+            {
+                case VolumeUnits.CubicMillimeter:
+                case VolumeUnits.Milliliter:
+                case VolumeUnits.ImperialFluidOunce:
+                    return 5;
+                case VolumeUnits.CubicMeter:
+                case VolumeUnits.CubicCentimeter:
+                    return 3;
+                case VolumeUnits.CubicKilometer:
+                case VolumeUnits.USGallon:
+                case VolumeUnits.ImperialGallon:
+                case VolumeUnits.ImperialFluidQuart:
+                case VolumeUnits.ImperialFluidPint:
+                case VolumeUnits.Liter:
+                    return 2;
+            }
+
+            throw new Exception("The 'TO' unit enum was improperly defined.");
         }
     }
 }

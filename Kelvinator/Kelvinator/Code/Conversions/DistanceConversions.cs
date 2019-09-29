@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dist = KelvinatorX.Code.Enums.DistanceUnits;
 
 namespace KelvinatorX.Code.Conversions
@@ -31,6 +32,34 @@ namespace KelvinatorX.Code.Conversions
             };
 
             return d;
+        }
+
+        public override int GetRoundToDecimalsValue()
+        {
+            Dist toUnit = (Dist)ToUnit;
+
+            switch (toUnit)
+            {
+                case Dist.Centimeter:
+                case Dist.Millimeter:
+                case Dist.Nanometer:
+                    return 5;
+
+                case Dist.Meter:
+                case Dist.Kilometer:
+                case Dist.Yard:
+                case Dist.Foot:
+                case Dist.Inch:
+                case Dist.Mile:
+                    return 2;
+                    
+                case Dist.AstronomicalUnit:                    
+                case Dist.LightYear:
+                    return 1;
+                    
+            }
+
+            throw new Exception("The 'TO' unit enum was improperly defined.");
         }
     }
 }

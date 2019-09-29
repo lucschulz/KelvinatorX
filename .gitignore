@@ -89,3 +89,5 @@ Kelvinator/KelvinatorTests/obj/Release AAb/build.force
 *.cache
 Kelvinator/KelvinatorTests/obj/Debug/KelvinatorTests.dll
 Kelvinator/KelvinatorTests/obj/Debug/KelvinatorTests.pdb
+*.pdb
+*.dll

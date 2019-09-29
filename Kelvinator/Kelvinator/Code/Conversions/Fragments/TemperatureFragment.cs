@@ -51,7 +51,7 @@ namespace KelvinatorX.Code
 
             var conv = new TemperatureConversions(fromUnit, toUnit);
 
-            EditText etFrom = LL.FindViewById<EditText>(Resource.Id.et_from_prompt);
+            EditText etFrom = SV.FindViewById<EditText>(Resource.Id.et_from_prompt);
             if (etFrom.Text != null)
             {
                 double fromValue = Convert.ToDouble(etFrom.Text);
@@ -63,13 +63,51 @@ namespace KelvinatorX.Code
                 }
                 else
                 {
-                    // TODO: Handle 0 input as value to convert.
+                    toValue = GetToValueForZeroFromValue(fromUnit, toUnit);
                 }
 
 
-                EditText etTo = LL.FindViewById<EditText>(Resource.Id.et_to_prompt);
+                EditText etTo = SV.FindViewById<EditText>(Resource.Id.et_to_prompt);
                 etTo.SetText(toValue.ToString(), TextView.BufferType.Normal);
             }
+        }
+
+        private double GetToValueForZeroFromValue(TemperatureUnits fromUnit, TemperatureUnits toUnit)
+        {
+            switch (fromUnit)
+            {
+                case TemperatureUnits.Celsius:
+                    if (toUnit == TemperatureUnits.Fahrentheit)
+                    {
+                        return -32;
+                    }
+                    else
+                    {
+                        return -273.15;
+                    }
+
+                case TemperatureUnits.Kelvin:
+                    if (toUnit == TemperatureUnits.Fahrentheit)
+                    {
+                        return -459.67;
+                    }
+                    else
+                    {
+                        return -273.15;
+                    }
+
+                case TemperatureUnits.Fahrentheit:
+                    if (toUnit == TemperatureUnits.Celsius)
+                    {
+                        return -32;
+                    }
+                    else
+                    {
+                        return -17.7778;
+                    }
+            }
+
+            throw new Exception("The 'FROM' and 'TO' units could not be properly determined for an input value of 0.");
         }
     }
 }

@@ -10,12 +10,6 @@ namespace KelvinatorX.Code
         public int FromUnitType { get; set; }
         public int ToUnitType { get; set; }
 
-        /// <summary>
-        /// Some fragments are using a linear layout as their base layout.
-        /// This should eventually be changed to scroll layouts across the board.
-        /// </summary>
-        public virtual LinearLayout LL { get; set; }
-
 
         /// <summary>
         /// Linear layouts need to be replaces with scroll layouts so that the keyboard

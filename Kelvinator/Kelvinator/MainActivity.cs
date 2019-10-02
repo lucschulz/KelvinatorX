@@ -13,6 +13,7 @@ using ActionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
 using Android.Gms.Ads;
 using Android.Widget;
 using Android.Graphics;
+using System;
 
 namespace KelvinatorX
 {
@@ -20,6 +21,8 @@ namespace KelvinatorX
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
         int menuId;
+        IMenu Menu { get; set; }
+
         Dictionary<Units, Android.Support.V4.App.Fragment> fragments;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -40,16 +43,24 @@ namespace KelvinatorX
 
             drawer.AddDrawerListener(toggle);
             toggle.SyncState();
-            
+
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.SetNavigationItemSelectedListener(this);
+
 
             GenerateFragments();
 
             MobileAds.Initialize(this.ApplicationContext, Sec.InitializeMobileAds);
             ConfigureAdBanner();
+
+            Button btn = FindViewById<Button>(Resource.Id.button1);
+            btn.Click += Btn_Click;
         }
 
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("TEST");
+        }
 
         private void GenerateFragments()
         {
@@ -66,41 +77,6 @@ namespace KelvinatorX
                 { Units.Volume, new VolumeFragment() },
                 { Units.Time, new TimeFragment() }
             };
-        }
-
-
-
-        public override void OnBackPressed()
-        {
-            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            if(drawer.IsDrawerOpen(GravityCompat.Start))
-            {
-                drawer.CloseDrawer(GravityCompat.Start);
-            }
-            else
-            {
-                base.OnBackPressed();
-            }
-        }
-
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            int id = item.ItemId;
-            if (id == Resource.Id.action_about)
-            {
-                var ft = SupportFragmentManager.BeginTransaction();
-                ft.Replace(Resource.Id.layH_main_container, new AboutFragment());
-                ft.Commit();
-                return true;
-            }
-
-            return base.OnOptionsItemSelected(item);
         }
 
         private void ConfigureAdBanner()
@@ -131,6 +107,43 @@ namespace KelvinatorX
 
             ad.LoadAd(adRequest);
             adRequest.Dispose();
+        }
+
+
+        public override void OnBackPressed()
+        {
+            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+
+
+            if(drawer.IsDrawerOpen(GravityCompat.Start))
+            {
+                drawer.CloseDrawer(GravityCompat.Start);
+            }
+            else
+            {
+                base.OnBackPressed();
+            }
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            Menu = menu;
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            int id = item.ItemId;
+            if (id == Resource.Id.action_about)
+            {
+                var ft = SupportFragmentManager.BeginTransaction();
+                ft.Replace(Resource.Id.layH_main_container, new AboutFragment());
+                ft.Commit();
+                return true;
+            }
+
+            return base.OnOptionsItemSelected(item);
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)
@@ -176,10 +189,10 @@ namespace KelvinatorX
             drawer.CloseDrawer(GravityCompat.Start);
             return true;
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }

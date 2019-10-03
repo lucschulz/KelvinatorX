@@ -55,7 +55,6 @@ namespace KelvinatorX
         {
             var ft = SupportFragmentManager.BeginTransaction();
             ft.Replace(Resource.Id.layH_main_container, new StartFragment());
-            ft.AddToBackStack(null);
             ft.Commit();
 
             fragments = new Dictionary<Units, Android.Support.V4.App.Fragment>
@@ -96,6 +95,7 @@ namespace KelvinatorX
             {
                 var ft = SupportFragmentManager.BeginTransaction();
                 ft.Replace(Resource.Id.layH_main_container, new AboutFragment());
+                ft.AddToBackStack("About");
                 ft.Commit();
                 return true;
             }
@@ -141,6 +141,7 @@ namespace KelvinatorX
             {
                 var ft = SupportFragmentManager.BeginTransaction();
                 ft.Replace(Resource.Id.layH_main_container, fragments[Units.Distance]);
+                ft.AddToBackStack("Distance");
                 ft.Commit();
             }
 
@@ -148,6 +149,7 @@ namespace KelvinatorX
             {
                 var ft = SupportFragmentManager.BeginTransaction();
                 ft.Replace(Resource.Id.layH_main_container, fragments[Units.Temperature]);
+                ft.AddToBackStack("Temperature");
                 ft.Commit();
             }
             else if (menuId == Resource.Id.nav_weight)
@@ -155,6 +157,7 @@ namespace KelvinatorX
                 var ft = SupportFragmentManager.BeginTransaction();
 
                 ft.Replace(Resource.Id.layH_main_container, fragments[Units.Weight]);
+                ft.AddToBackStack("Weight");
                 ft.Commit();
             }
             else if (menuId == Resource.Id.nav_volume)
@@ -162,6 +165,7 @@ namespace KelvinatorX
                 var ft = SupportFragmentManager.BeginTransaction();
 
                 ft.Replace(Resource.Id.layH_main_container, fragments[Units.Volume]);
+                ft.AddToBackStack("Volume");
                 ft.Commit();
             }
             else if (menuId == Resource.Id.nav_time)
@@ -169,6 +173,7 @@ namespace KelvinatorX
                 var ft = SupportFragmentManager.BeginTransaction();
 
                 ft.Replace(Resource.Id.layH_main_container, fragments[Units.Time]);
+                ft.AddToBackStack("Time");
                 ft.Commit();
             }
 

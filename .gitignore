@@ -450,3 +450,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 Kelvinator/Kelvinator/.vs/KelvinatorX/v16/.suo
+Kelvinator/Kelvinator/.vs/KelvinatorX/v16/.suo
+Kelvinator/Kelvinator/.vs/KelvinatorX/v16/Server/sqlite3/storage.ide

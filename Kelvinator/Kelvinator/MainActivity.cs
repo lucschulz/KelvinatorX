@@ -52,14 +52,6 @@ namespace KelvinatorX
 
             MobileAds.Initialize(this.ApplicationContext, Sec.InitializeMobileAds);
             ConfigureAdBanner();
-
-            Button btn = FindViewById<Button>(Resource.Id.button1);
-            btn.Click += Btn_Click;
-        }
-
-        private void Btn_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("TEST");
         }
 
         private void GenerateFragments()
